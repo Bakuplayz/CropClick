@@ -35,14 +35,18 @@ import java.util.Random;
  * @version 2.0.0
  * @since 2.0.0
  */
+@Getter
 public final class Drop {
 
-    private @Getter final int amount;
-    private @Getter final String name;
-    private @Getter final Material type;
+    private final int amount;
 
-    private @Getter final double chance;
-    private @Getter final double randomChance;
+    private final String name;
+
+    private final Material type;
+
+    private final double chance;
+
+    private final double randomChance;
 
 
     public Drop(@NotNull Material type,
@@ -71,7 +75,6 @@ public final class Drop {
      * Gets the {@link Drop drop} as an {@link ItemStack item}.
      *
      * @param nameChanged true if the name has been changed, otherwise false.
-     *
      * @return the drop as an item.
      */
     public @NotNull ItemStack toItemStack(boolean nameChanged) {

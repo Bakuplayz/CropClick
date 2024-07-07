@@ -46,12 +46,19 @@ public final class AddonManager {
 
     private final AddonsConfig addonsConfig;
 
+
     private @Getter McMMOAddon mcMMOAddon;
+
     private @Getter TownyAddon townyAddon;
-    private @Getter AureliumAddon aureliumAddon;
+
+    private @Getter AuraSkillsAddon auraSkillsAddon;
+
     private @Getter ResidenceAddon residenceAddon;
+
     private @Getter JobsRebornAddon jobsRebornAddon;
+
     private @Getter WorldGuardAddon worldGuardAddon;
+
     private @Getter OfflineGrowthAddon offlineGrowthAddon;
 
     /**
@@ -71,37 +78,37 @@ public final class AddonManager {
      * Registers the all the {@link Addon installed addons}.
      */
     public void registerAddons() {
-        if (addonsConfig.isInstalled("mcMMO")) {
+        if (addonsConfig.isInstalled(McMMOAddon.NAME)) {
             this.mcMMOAddon = new McMMOAddon(plugin);
             registeredAddons.add(mcMMOAddon);
         }
 
-        if (addonsConfig.isInstalled("Towny")) {
+        if (addonsConfig.isInstalled(TownyAddon.NAME)) {
             this.townyAddon = new TownyAddon(plugin);
             registeredAddons.add(townyAddon);
         }
 
-        if (addonsConfig.isInstalled("Aurelium")) {
-            this.aureliumAddon = new AureliumAddon(plugin);
-            registeredAddons.add(aureliumAddon);
+        if (addonsConfig.isInstalled(AuraSkillsAddon.NAME)) {
+            this.auraSkillsAddon = new AuraSkillsAddon(plugin);
+            registeredAddons.add(auraSkillsAddon);
         }
 
-        if (addonsConfig.isInstalled("Residence")) {
+        if (addonsConfig.isInstalled(ResidenceAddon.NAME)) {
             this.residenceAddon = new ResidenceAddon(plugin);
             registeredAddons.add(residenceAddon);
         }
 
-        if (addonsConfig.isInstalled("Jobs")) {
+        if (addonsConfig.isInstalled(JobsRebornAddon.NAME)) {
             this.jobsRebornAddon = new JobsRebornAddon(plugin);
             registeredAddons.add(jobsRebornAddon);
         }
 
-        if (addonsConfig.isInstalled("WorldGuard")) {
+        if (addonsConfig.isInstalled(WorldGuardAddon.NAME)) {
             this.worldGuardAddon = new WorldGuardAddon(plugin);
             registeredAddons.add(worldGuardAddon);
         }
 
-        if (addonsConfig.isInstalled("OfflineGrowth")) {
+        if (addonsConfig.isInstalled(OfflineGrowthAddon.NAME)) {
             this.offlineGrowthAddon = new OfflineGrowthAddon(plugin);
             registeredAddons.add(offlineGrowthAddon);
         }
@@ -127,8 +134,8 @@ public final class AddonManager {
      */
     public @Nullable Addon findByName(@NotNull String name) {
         return registeredAddons.stream()
-                               .filter(addon -> addon.getName().equals(name))
-                               .findFirst().orElse(null);
+                .filter(addon -> addon.getName().equals(name))
+                .findFirst().orElse(null);
     }
 
 
@@ -182,8 +189,9 @@ public final class AddonManager {
         }
 
         if (isInstalledAndEnabled(residenceAddon)) {
-            return residenceAddon.isMemberOfRegion(player)
-                    || residenceAddon.hasRegionFlag(player.getLocation());
+            boolean isRegionMember = residenceAddon.isMemberOfRegion(player);
+            boolean hasRegionFlag = residenceAddon.hasRegionFlag(player.getLocation());
+            return isRegionMember || hasRegionFlag;
         }
 
         if (isInstalledAndEnabled(worldGuardAddon)) {
@@ -209,9 +217,14 @@ public final class AddonManager {
             mcMMOAddon.addExperience(player, crop);
         }
 
-        if (isInstalledAndEnabled(aureliumAddon)) {
-            aureliumAddon.addExperience(player, crop);
+        if (isInstalledAndEnabled(auraSkillsAddon)) {
+            auraSkillsAddon.addExperience(player, crop);
         }
+    }
+
+
+    public int getAmountOfAddons() {
+        return 6;
     }
 
 }

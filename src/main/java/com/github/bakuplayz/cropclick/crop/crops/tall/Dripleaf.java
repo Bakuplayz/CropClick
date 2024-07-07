@@ -26,6 +26,7 @@ import com.github.bakuplayz.cropclick.crop.crops.base.Crop;
 import com.github.bakuplayz.cropclick.crop.crops.base.TallCrop;
 import com.github.bakuplayz.cropclick.crop.crops.base.Waterlogged;
 import com.github.bakuplayz.cropclick.utils.BlockUtils;
+import com.github.bakuplayz.spigotspin.utils.XMaterial;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.jetbrains.annotations.Contract;
@@ -163,8 +164,8 @@ public final class Dripleaf extends TallCrop implements Waterlogged {
      * @return the crop's menu type.
      */
     @Override
-    public @NotNull Material getMenuType() {
-        return Material.BIG_DRIPLEAF;
+    public @NotNull XMaterial getMenuType() {
+        return XMaterial.BIG_DRIPLEAF;
     }
 
 

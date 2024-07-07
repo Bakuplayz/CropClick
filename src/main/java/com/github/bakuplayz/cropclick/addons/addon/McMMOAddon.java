@@ -37,11 +37,13 @@ import org.jetbrains.annotations.NotNull;
  */
 public final class McMMOAddon extends Addon {
 
+    public final static String NAME = "mcMMO";
+
     private final AddonConfigSection addonSection;
 
 
     public McMMOAddon(@NotNull CropClick plugin) {
-        super(plugin, "mcMMO");
+        super(plugin, NAME);
         this.addonSection = plugin.getCropsConfig().getAddonSection();
     }
 
@@ -65,7 +67,6 @@ public final class McMMOAddon extends Addon {
      * Gets the {@link McMMOAddon mcMMO} experience for the {@link Crop provided crop}.
      *
      * @param cropName the name of the crop.
-     *
      * @return the experience for the crop.
      */
     private int getExperience(@NotNull String cropName) {

@@ -34,9 +34,10 @@ import org.jetbrains.annotations.NotNull;
  * @version 2.0.0
  * @since 2.0.0
  */
+@Getter
 public final class PlayerHarvestCropEvent extends HarvestCropEvent {
 
-    private final @Getter Player player;
+    private final Player player;
 
 
     public PlayerHarvestCropEvent(@NotNull Crop crop, @NotNull Block block, @NotNull Player player) {

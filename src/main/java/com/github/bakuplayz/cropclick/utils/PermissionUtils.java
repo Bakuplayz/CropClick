@@ -215,4 +215,16 @@ public final class PermissionUtils {
         return player.hasPermission("cropclick.harvest." + name);
     }
 
+
+    /**
+     * Checks whether the {@link Player provided player} is allowed to claim a {@link Autofarm autofarm}.
+     *
+     * @param player the player to check.
+     *
+     * @return true if allowed, otherwise false.
+     */
+    public static boolean canClaimAutofarm(@NotNull Player player) {
+        return player.hasPermission("cropclick.autofarm.claim");
+    }
+
 }

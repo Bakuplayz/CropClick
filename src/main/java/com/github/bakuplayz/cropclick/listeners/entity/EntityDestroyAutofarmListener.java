@@ -23,7 +23,6 @@ import com.github.bakuplayz.cropclick.CropClick;
 import com.github.bakuplayz.cropclick.autofarm.Autofarm;
 import com.github.bakuplayz.cropclick.autofarm.AutofarmManager;
 import com.github.bakuplayz.cropclick.events.autofarm.link.AutofarmUnlinkEvent;
-import com.github.bakuplayz.cropclick.menu.menus.links.Component;
 import org.bukkit.Bukkit;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Entity;
@@ -48,6 +47,7 @@ import java.util.stream.Collectors;
 public final class EntityDestroyAutofarmListener implements Listener {
 
     private final Logger logger;
+
     private final boolean isDebugging;
 
     private final AutofarmManager autofarmManager;
@@ -97,7 +97,7 @@ public final class EntityDestroyAutofarmListener implements Listener {
 
 
     /**
-     * Gets all the exploded {@link Component autofarm components}.
+     * Gets all the exploded autofarm components.
      *
      * @param explodedBlocks the list of exploded blocks.
      *
@@ -105,8 +105,8 @@ public final class EntityDestroyAutofarmListener implements Listener {
      */
     private @NotNull List<Block> getExplodedComponents(@NotNull List<Block> explodedBlocks) {
         return explodedBlocks.stream()
-                             .filter(autofarmManager::isComponent)
-                             .collect(Collectors.toList());
+                .filter(autofarmManager::isComponent)
+                .collect(Collectors.toList());
     }
 
 }

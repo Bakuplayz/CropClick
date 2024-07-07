@@ -40,37 +40,38 @@ import org.jetbrains.annotations.NotNull;
  * @version 2.0.0
  * @since 2.0.0
  */
+@Getter
 public final class CropClickAPI {
 
     /**
      * Gets the {@link CropManager} which controls all the {@link Crop crops}.
      */
-    private final @Getter CropManager cropManager;
+    private final CropManager cropManager;
 
     /**
      * Gets the {@link CropsConfig} which is used register {@link Crop crops}.
      */
-    private final @Getter CropsConfig cropsConfig;
+    private final CropsConfig cropsConfig;
 
     /**
      * Gets the {@link AutofarmManager} which controls all the {@link Autofarm autofarms}.
      */
-    private final @Getter AutofarmManager autofarmManager;
+    private final AutofarmManager autofarmManager;
 
     /**
      * Gets the {@link UpdateManager} which handles {@link CropClick} updates.
      */
-    private final @Getter UpdateManager updateManager;
+    private final UpdateManager updateManager;
 
     /**
      * Gets the {@link WorldManager} which controls all the {@link FarmWorld farm worlds}.
      */
-    private final @Getter WorldManager worldManager;
+    private final WorldManager worldManager;
 
     /**
      * Gets the {@link AddonManager} which controls all the {@link Addon addons}.
      */
-    private final @Getter AddonManager addonManager;
+    private final AddonManager addonManager;
 
 
     private CropClickAPI(@NotNull CropClick plugin) {

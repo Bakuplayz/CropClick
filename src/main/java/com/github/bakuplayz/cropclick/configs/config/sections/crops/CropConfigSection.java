@@ -36,6 +36,8 @@ import org.jetbrains.annotations.NotNull;
  * @since 2.0.0
  */
 public final class CropConfigSection extends ConfigSection {
+    
+    private static final int DECIMAL_TO_PERCENT = 10_000;
 
     private final CropsConfig cropsConfig;
 
@@ -50,7 +52,6 @@ public final class CropConfigSection extends ConfigSection {
      * Checks whether the {@link Crop provided crop} exists in the {@link CropsConfig crops config}.
      *
      * @param cropName the name of the crop.
-     *
      * @return true if it exists, otherwise false.
      */
     public boolean exists(@NotNull String cropName) {
@@ -62,7 +63,6 @@ public final class CropConfigSection extends ConfigSection {
      * Gets the {@link Drop drop} name for the {@link Crop provided crop}.
      *
      * @param cropName the name of the crop.
-     *
      * @return the crop's drop name.
      */
     @Contract("_ -> new")
@@ -92,7 +92,6 @@ public final class CropConfigSection extends ConfigSection {
      * Gets the {@link Drop drop} amount for the {@link Crop provided crop}.
      *
      * @param cropName the name of the crop.
-     *
      * @return the crop's drop amount.
      */
     public int getDropAmount(@NotNull String cropName) {
@@ -105,7 +104,6 @@ public final class CropConfigSection extends ConfigSection {
      *
      * @param cropName the name of the crop.
      * @param def      the default amount, if non was found.
-     *
      * @return the crop's drop name, otherwise the default.
      */
     public int getDropAmount(@NotNull String cropName, int def) {
@@ -126,10 +124,21 @@ public final class CropConfigSection extends ConfigSection {
 
 
     /**
+     * Gets the {@link Drop drop} chance for the {@link Crop provided crop},
+     * in the format of 0.01 becoming 100%.
+     *
+     * @param cropName the name of the crop.
+     * @return the crop's drop chance.
+     */
+    public int getDropChanceDecimal(@NotNull String cropName) {
+        return (int) (getDropChance(cropName) * DECIMAL_TO_PERCENT);
+    }
+
+
+    /**
      * Gets the {@link Drop drop} chance for the {@link Crop provided crop}.
      *
      * @param cropName the name of the crop.
-     *
      * @return the crop's drop chance.
      */
     public double getDropChance(@NotNull String cropName) {
@@ -142,7 +151,6 @@ public final class CropConfigSection extends ConfigSection {
      *
      * @param cropName the name of the crop.
      * @param def      the default amount, if non was found.
-     *
      * @return the crop's drop chance, otherwise the default.
      */
     public double getDropChance(@NotNull String cropName, double def) {
@@ -166,7 +174,6 @@ public final class CropConfigSection extends ConfigSection {
      * Checks whether the {@link Crop provided crop} is harvestable.
      *
      * @param cropName the name of the crop.
-     *
      * @return true if harvestable, otherwise false.
      */
     public boolean isHarvestable(@NotNull String cropName) {
@@ -187,20 +194,9 @@ public final class CropConfigSection extends ConfigSection {
 
 
     /**
-     * Toggles the harvest state of the {@link Crop provided crop}.
-     *
-     * @param cropName the name of the crop.
-     */
-    public void toggleHarvest(@NotNull String cropName) {
-        setHarvestable(cropName, !isHarvestable(cropName));
-    }
-
-
-    /**
      * Checks whether the {@link Crop provided crop} is linkable.
      *
      * @param cropName the name of the crop.
-     *
      * @return true if linkable, otherwise false.
      */
     public boolean isLinkable(@NotNull String cropName) {
@@ -213,7 +209,6 @@ public final class CropConfigSection extends ConfigSection {
      *
      * @param cropName the name of the crop.
      * @param def      the default state, if non was found.
-     *
      * @return the linkable state, otherwise the default.
      */
     public boolean isLinkable(@NotNull String cropName, boolean def) {
@@ -247,7 +242,6 @@ public final class CropConfigSection extends ConfigSection {
      * Checks whether the {@link Crop provided crop} should replant.
      *
      * @param cropName the name of the crop.
-     *
      * @return true if it should, otherwise false.
      */
     public boolean shouldReplant(@NotNull String cropName) {
@@ -281,7 +275,6 @@ public final class CropConfigSection extends ConfigSection {
      * Checks whether the {@link Crop provided crop} should drop at least one drop.
      *
      * @param cropName the name of the crop.
-     *
      * @return true if it should, otherwise false.
      */
     public boolean shouldDropAtLeastOne(@NotNull String cropName) {
@@ -294,7 +287,6 @@ public final class CropConfigSection extends ConfigSection {
      *
      * @param cropName the name of the crop.
      * @param def      the default state, if non was found.
-     *
      * @return the drop-at-least-one state, otherwise the default.
      */
     public boolean shouldDropAtLeastOne(@NotNull String cropName, boolean def) {

@@ -84,7 +84,6 @@ public abstract class Subcommand implements Commandable {
      * Checks whether the {@link Player provided player} has permission to perform the {@link Subcommand extending command}.
      *
      * @param player the player to check.
-     *
      * @return true if it has, otherwise false.
      */
     public boolean hasPermission(@NotNull Player player) {
@@ -98,6 +97,6 @@ public abstract class Subcommand implements Commandable {
      * @param player the player executing the command.
      * @param args   the arguments passed along the command.
      */
-    public abstract void perform(@NotNull Player player, String[] args);
+    public abstract void perform(@NotNull Player player, String... args);
 
 }

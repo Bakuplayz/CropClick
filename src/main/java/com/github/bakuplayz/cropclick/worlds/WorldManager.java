@@ -40,7 +40,8 @@ import java.util.HashMap;
  */
 public final class WorldManager {
 
-    private final @NotNull WorldDataStorage worldData;
+    @NotNull
+    private final WorldDataStorage worldData;
 
     /**
      * A variable containing all the registered {@link World worlds} as {@link FarmWorld farm worlds}.

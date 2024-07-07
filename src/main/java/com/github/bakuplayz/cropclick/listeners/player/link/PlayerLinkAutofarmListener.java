@@ -23,7 +23,6 @@ import com.github.bakuplayz.cropclick.CropClick;
 import com.github.bakuplayz.cropclick.autofarm.Autofarm;
 import com.github.bakuplayz.cropclick.events.autofarm.link.AutofarmLinkEvent;
 import com.github.bakuplayz.cropclick.events.player.link.PlayerLinkAutofarmEvent;
-import com.github.bakuplayz.cropclick.language.LanguageAPI;
 import com.github.bakuplayz.cropclick.utils.PermissionUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
@@ -31,6 +30,8 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.jetbrains.annotations.NotNull;
+
+import static com.github.bakuplayz.cropclick.language.LanguageAPI.Menu.LINK_ACTION_SUCCESS;
 
 
 /**
@@ -65,7 +66,7 @@ public final class PlayerLinkAutofarmListener implements Listener {
             return;
         }
 
-        LanguageAPI.Menu.LINK_ACTION_SUCCESS.send(plugin, player);
+        LINK_ACTION_SUCCESS.send(plugin, player);
 
         if (plugin.isDebugging()) {
             plugin.getLogger().info(String.format("%s (Player): Called the link event!", player.getName()));

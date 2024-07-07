@@ -37,6 +37,8 @@ import org.jetbrains.annotations.NotNull;
  */
 public final class SeedConfigSection extends ConfigSection {
 
+    private static final int DECIMAL_TO_PERCENT = 10_000;
+
     private final CropsConfig cropsConfig;
 
 
@@ -50,7 +52,6 @@ public final class SeedConfigSection extends ConfigSection {
      * Checks whether the {@link Seed provided seed} exists in the {@link CropsConfig crops config}.
      *
      * @param seedName the name of the seed.
-     *
      * @return true if it exists, otherwise false.
      */
     public boolean exists(@NotNull String seedName) {
@@ -62,7 +63,6 @@ public final class SeedConfigSection extends ConfigSection {
      * Gets the {@link Drop drop} name for the {@link Seed provided seed}.
      *
      * @param seedName the name of the seed.
-     *
      * @return the seed's drop name.
      */
     @Contract("_ -> new")
@@ -87,7 +87,6 @@ public final class SeedConfigSection extends ConfigSection {
      * Gets the {@link Drop drop} amount for the {@link Seed provided seed}.
      *
      * @param seedName the name of the seed.
-     *
      * @return the seed's drop amount.
      */
     public int getDropAmount(@NotNull String seedName) {
@@ -100,7 +99,6 @@ public final class SeedConfigSection extends ConfigSection {
      *
      * @param seedName the name of the seed.
      * @param def      the default amount, if non was found.
-     *
      * @return the seed's drop amount, otherwise the default.
      */
     public int getDropAmount(@NotNull String seedName, int def) {
@@ -121,10 +119,21 @@ public final class SeedConfigSection extends ConfigSection {
 
 
     /**
+     * Gets the {@link Drop drop} chance for the {@link Seed provided seed},
+     * in the format of 0.01 becoming 100%.
+     *
+     * @param cropName the name of the seed.
+     * @return the seed's drop chance.
+     */
+    public int getDropChanceDecimal(@NotNull String cropName) {
+        return (int) (getDropChance(cropName) * DECIMAL_TO_PERCENT);
+    }
+
+
+    /**
      * Gets the {@link Drop drop} chance for the {@link Seed provided seed}.
      *
      * @param seedName the name of the seed.
-     *
      * @return the seed's drop chance.
      */
     public double getDropChance(@NotNull String seedName) {
@@ -137,7 +146,6 @@ public final class SeedConfigSection extends ConfigSection {
      *
      * @param seedName the name of the seed.
      * @param def      the default chance, if non was found.
-     *
      * @return the seed's drop chance, otherwise the default.
      */
     public double getDropChance(@NotNull String seedName, double def) {
@@ -173,7 +181,6 @@ public final class SeedConfigSection extends ConfigSection {
      * Checks whether the {@link Seed provided seed} is enabled.
      *
      * @param seedName the name of the seed.
-     *
      * @return true if enabled, otherwise false.
      */
     public boolean isEnabled(@NotNull String seedName) {

@@ -22,7 +22,6 @@ package com.github.bakuplayz.cropclick.autofarm;
 import com.github.bakuplayz.cropclick.autofarm.container.Container;
 import com.github.bakuplayz.cropclick.location.DoublyLocation;
 import com.github.bakuplayz.cropclick.location.LocationTypeAdapter;
-import com.github.bakuplayz.cropclick.menu.menus.links.Component;
 import com.github.bakuplayz.cropclick.utils.AutofarmUtils;
 import com.github.bakuplayz.cropclick.utils.Enableable;
 import com.google.gson.annotations.JsonAdapter;
@@ -54,24 +53,32 @@ public final class Autofarm implements Enableable {
     public final static UUID UNKNOWN_OWNER = UUID.fromString("00000000-0000-0000-0000-000000000000");
 
     @SerializedName("owner")
-    private @NotNull @Setter @Getter UUID ownerID;
+    private @NotNull
+    @Setter
+    @Getter UUID ownerID;
 
     @SerializedName("farmer")
-    private final @NotNull @Getter UUID farmerID;
+    private final @NotNull
+    @Getter UUID farmerID;
 
-    private @Setter @Getter @Accessors(fluent = true) boolean isEnabled;
+    private @Setter
+    @Getter
+    @Accessors(fluent = true) boolean isEnabled;
 
     @SerializedName("crop")
     @JsonAdapter(LocationTypeAdapter.class)
-    private @Setter @Getter Location cropLocation;
+    private @Setter
+    @Getter Location cropLocation;
 
     @SerializedName("container")
     @JsonAdapter(LocationTypeAdapter.class)
-    private @Setter @Getter Location containerLocation;
+    private @Setter
+    @Getter Location containerLocation;
 
     @SerializedName("dispenser")
     @JsonAdapter(LocationTypeAdapter.class)
-    private @Setter @Getter Location dispenserLocation;
+    private @Setter
+    @Getter Location dispenserLocation;
 
     private transient Container container;
 
@@ -184,7 +191,7 @@ public final class Autofarm implements Enableable {
 
 
     /**
-     * Checks whether the {@link Component autofarm components} are present.
+     * Checks whether the autofarm components are present.
      *
      * @param manager the manager to check with.
      *

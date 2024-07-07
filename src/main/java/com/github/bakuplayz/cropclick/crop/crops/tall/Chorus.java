@@ -26,6 +26,7 @@ import com.github.bakuplayz.cropclick.crop.crops.base.Crop;
 import com.github.bakuplayz.cropclick.crop.crops.base.TallCrop;
 import com.github.bakuplayz.cropclick.utils.BlockUtils;
 import com.github.bakuplayz.cropclick.utils.CollectionUtils;
+import com.github.bakuplayz.spigotspin.utils.XMaterial;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
@@ -162,8 +163,8 @@ public final class Chorus extends TallCrop {
      * @return the crop's menu type.
      */
     @Override
-    public @NotNull Material getMenuType() {
-        return Material.CHORUS_FRUIT;
+    public @NotNull XMaterial getMenuType() {
+        return XMaterial.CHORUS_FRUIT;
     }
 
 

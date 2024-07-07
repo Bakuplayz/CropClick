@@ -25,6 +25,7 @@ import com.github.bakuplayz.cropclick.crop.crops.base.BaseCrop;
 import com.github.bakuplayz.cropclick.crop.crops.base.Crop;
 import com.github.bakuplayz.cropclick.crop.crops.base.GroundCrop;
 import com.github.bakuplayz.cropclick.crop.seeds.base.Seed;
+import com.github.bakuplayz.spigotspin.utils.XMaterial;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
@@ -128,8 +129,8 @@ public final class PitcherPlant extends GroundCrop {
      * @return the crop's menu type.
      */
     @Override
-    public @NotNull Material getMenuType() {
-        return Material.PITCHER_PLANT;
+    public @NotNull XMaterial getMenuType() {
+        return XMaterial.PITCHER_PLANT;
     }
 
 }

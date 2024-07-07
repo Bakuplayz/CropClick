@@ -26,7 +26,6 @@ import com.github.bakuplayz.cropclick.events.Event;
 import com.github.bakuplayz.cropclick.events.autofarm.link.AutofarmUpdateEvent;
 import com.github.bakuplayz.cropclick.events.player.link.PlayerUpdateAutofarmEvent;
 import com.github.bakuplayz.cropclick.location.DoublyLocation;
-import com.github.bakuplayz.cropclick.menu.menus.links.Component;
 import com.github.bakuplayz.cropclick.utils.BlockUtils;
 import com.github.bakuplayz.cropclick.utils.LocationUtils;
 import com.github.bakuplayz.cropclick.utils.PermissionUtils;
@@ -125,7 +124,7 @@ public final class PlayerUpdateAutofarmListener implements Listener {
 
 
     /**
-     * Gets the runnable for checking updating an {@link Autofarm autofarm's} container {@link Component} based on the created {@link DoubleChest double chest}.
+     * Gets the runnable for checking updating an {@link Autofarm autofarm's} container component based on the created {@link DoubleChest double chest}.
      *
      * @param player the player updating the autofarm.
      * @param block  the block where the chest was placed.

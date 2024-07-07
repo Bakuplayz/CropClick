@@ -23,13 +23,14 @@ import com.github.bakuplayz.cropclick.CropClick;
 import com.github.bakuplayz.cropclick.commands.Subcommand;
 import com.github.bakuplayz.cropclick.configs.Config;
 import com.github.bakuplayz.cropclick.datastorages.DataStorage;
-import com.github.bakuplayz.cropclick.language.LanguageAPI;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+
+import static com.github.bakuplayz.cropclick.language.LanguageAPI.Command.*;
 
 
 /**
@@ -45,7 +46,7 @@ public final class ResetCommand extends Subcommand {
 
 
     public ResetCommand(@NotNull CropClick plugin) {
-        super(plugin, "reset", LanguageAPI.Command.RESET_DESCRIPTION);
+        super(plugin, "reset", RESET_DESCRIPTION);
         this.pluginFolder = plugin.getDataFolder();
     }
 
@@ -61,13 +62,13 @@ public final class ResetCommand extends Subcommand {
         try {
             deleteConfigs();
             deleteDataStorages();
-            LanguageAPI.Command.RESET_DELETE.send(plugin, player);
+            RESET_DELETE.send(plugin, player);
         } catch (IOException e) {
-            e.printStackTrace();
-            LanguageAPI.Command.RESET_FAILED.send(plugin, player);
+            CropClick.LOGGER.severe(e.getMessage());
+            RESET_FAILED.send(plugin, player);
         } finally {
             plugin.onReset();
-            LanguageAPI.Command.RESET_SUCCESS.send(plugin, player);
+            RESET_SUCCESS.send(plugin, player);
         }
     }
 

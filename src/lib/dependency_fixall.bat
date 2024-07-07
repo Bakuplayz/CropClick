@@ -17,3 +17,7 @@ CALL ./residence_fix.bat
 
 :: Adds MockBukkit to the local maven.
 CALL ./mock_fix.bat
+
+
+:: Adds AnvilGUI to the local maven.
+CALL ./anvil_fix.bat

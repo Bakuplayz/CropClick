@@ -32,6 +32,9 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static com.github.bakuplayz.cropclick.language.LanguageAPI.Menu.GENERAL_DISABLED_STATUS;
+import static com.github.bakuplayz.cropclick.language.LanguageAPI.Menu.GENERAL_ENABLED_STATUS;
+
 
 /**
  * A utility class for {@link LanguageAPI displayed messages} and or {@link String strings}.
@@ -66,9 +69,9 @@ public final class MessageUtils {
     public static @NotNull String beautify(@NotNull String message, boolean isUnderscored) {
         String[] words = message.split(isUnderscored ? "_" : "(?=\\p{Lu})");
         return Arrays.stream(words)
-                     .map(String::toLowerCase)
-                     .map(StringUtils::capitalize)
-                     .collect(Collectors.joining(" "));
+                .map(String::toLowerCase)
+                .map(StringUtils::capitalize)
+                .collect(Collectors.joining(" "));
     }
 
 
@@ -93,8 +96,8 @@ public final class MessageUtils {
             if (isNotStart && isNewLine) {
                 readableWords.add(
                         skipFirstLine
-                        ? color + partOfWord
-                        : partOfWord.toString()
+                                ? color + partOfWord
+                                : partOfWord.toString()
                 );
                 partOfWord = new StringBuilder();
             }
@@ -110,8 +113,8 @@ public final class MessageUtils {
         }
 
         return readableWords.size() != 0
-               ? readableWords
-               : Collections.singletonList(partOfWord.toString());
+                ? readableWords
+                : Collections.singletonList(partOfWord.toString());
     }
 
 
@@ -124,8 +127,8 @@ public final class MessageUtils {
      * @return the status message.
      */
     public static @NotNull String getStatusMessage(@NotNull CropClick plugin, boolean isEnabled) {
-        return isEnabled ? LanguageAPI.Menu.GENERAL_ENABLED_STATUS.get(plugin)
-                         : LanguageAPI.Menu.GENERAL_DISABLED_STATUS.get(plugin);
+        return isEnabled ? GENERAL_ENABLED_STATUS.get(plugin)
+                : GENERAL_DISABLED_STATUS.get(plugin);
     }
 
 

@@ -20,6 +20,7 @@
 package com.github.bakuplayz.cropclick.crop.seeds.base;
 
 import com.github.bakuplayz.cropclick.crop.Drop;
+import com.github.bakuplayz.spigotspin.utils.XMaterial;
 import org.bukkit.Material;
 import org.bukkit.inventory.Inventory;
 import org.jetbrains.annotations.NotNull;
@@ -63,7 +64,6 @@ public interface Seed {
      * Harvests the implementing seed.
      *
      * @param inventory the inventory to add the drops to.
-     *
      * @return true if the seed was harvested, otherwise false.
      */
     boolean harvest(@NotNull Inventory inventory);
@@ -74,7 +74,7 @@ public interface Seed {
      *
      * @return the seed's menu type.
      */
-    @NotNull Material getMenuType();
+    @NotNull XMaterial getMenuType();
 
 
     /**

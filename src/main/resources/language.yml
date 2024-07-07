@@ -93,8 +93,8 @@ menu:
     settings: "Settings"
 
     addons: "Addons"
-    aurelium: "Aurelium"
-    aureliumCrop: "Crop Settings"
+    auraSkills: "AuraSkills"
+    auraSkillsCrop: "Crop Settings"
     towny: "Towny"
     mcMMO: "mcMMO"
     mcMMOCrop: "Crop Settings"
@@ -193,7 +193,7 @@ menu:
       particles: "&7Amount of Particles: &e%status%"
       sounds: "&7Amount of Sounds: &e%status%"
       mcMMOExperience: "&7Experience: &e%status%"
-      aureliumExperience: "&7Experience: &e%status%"
+      auraSkillsExperience: "&7Experience: &e%status%"
       jobsExperience: "&7Experience: &e%status%"
       jobsMoney: "&7Money: &e%status%"
       jobsPoints: "&7Points: &e%status%"
@@ -311,8 +311,8 @@ menu:
     itemOwnerUnclaimed: "Unclaimed"
 
   addons:
-    aurelium:
-      itemName: "&eAurelium"
+    auraSkills:
+      itemName: "&eAuraSkills"
       itemTips: "&7Addon specific settings for the &e'title-named' &7plugin, to configure worlds."
       itemStatus: "&7Enabled: &e%status%"
 
@@ -380,8 +380,8 @@ menu:
       itemName: "&eWorldGuard &7(%status%)"
       itemTips: "&7Toggles the &e'title-named' &7plugin's functionality and interactivity with &eCropClick&7."
 
-    aurelium:
-      itemName: "&eAurelium &7(%status%)"
+    auraSkills:
+      itemName: "&eAuraSkills &7(%status%)"
       itemTips: "&7Toggles the &e'title-named' &7plugin's functionality and interactivity with &eCropClick&7."
 
   jobsCrop:
@@ -431,7 +431,7 @@ menu:
       changed: "&7Changed the experience reason to &r%name%&7."
       unchanged: "&cExperience reason unchanged!"
 
-  aureliumCrop:
+  auraSkillsCrop:
     add:
       itemName: "&7Add &a%amount% &7(%type%)"
       itemAfter: "&7After: &a%value%"
@@ -575,7 +575,7 @@ menu:
     itemName: "&e%name%"
     itemJobsTips: "&7Toggles the &eJobs Reborn &7addon, in the world."
     itemMcMMOTips: "&7Toggles the &emcMMO &7addon, in the world."
-    itemAureliumTips: "&7Toggles the &eAurelium &7addon, in the world."
+    itemAuraSkillsTips: "&7Toggles the &eAura Skills &7addon, in the world."
     itemOfflineGrowthTips: "&7Toggles the &eOffline Growth &7addon, in the world."
     itemResidenceTips: "&7Toggles the &eResidence &7addon, in the world."
     itemTownyTips: "&7Toggles the &eTowny &7addon, in the world."

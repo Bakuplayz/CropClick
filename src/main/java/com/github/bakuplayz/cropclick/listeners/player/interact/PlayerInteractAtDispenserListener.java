@@ -23,8 +23,7 @@ import com.github.bakuplayz.cropclick.CropClick;
 import com.github.bakuplayz.cropclick.autofarm.Autofarm;
 import com.github.bakuplayz.cropclick.autofarm.AutofarmManager;
 import com.github.bakuplayz.cropclick.events.player.interact.PlayerInteractAtDispenserEvent;
-import com.github.bakuplayz.cropclick.menu.menus.links.DispenserLinkMenu;
-import com.github.bakuplayz.cropclick.menu.states.AutofarmsMenuState;
+import com.github.bakuplayz.cropclick.menus.links.DispenserLinkMenu;
 import com.github.bakuplayz.cropclick.utils.AutofarmUtils;
 import com.github.bakuplayz.cropclick.utils.PermissionUtils;
 import org.bukkit.block.Block;
@@ -46,6 +45,7 @@ import org.jetbrains.annotations.NotNull;
 public final class PlayerInteractAtDispenserListener implements Listener {
 
     private final CropClick plugin;
+
     private final AutofarmManager autofarmManager;
 
 
@@ -81,17 +81,11 @@ public final class PlayerInteractAtDispenserListener implements Listener {
 
         if (plugin.isDebugging()) {
             plugin.getLogger()
-                  .info(String.format("%s (Player): Called the interact at dispenser event!", player.getName()));
+                    .info(String.format("%s (Player): Called the interact at dispenser event!", player.getName()));
         }
 
 
-        new DispenserLinkMenu(
-                plugin,
-                player,
-                block,
-                autofarm,
-                AutofarmsMenuState.DISPENSER
-        ).openMenu();
+        new DispenserLinkMenu(plugin, autofarm, block, false).open(player);
     }
 
 }

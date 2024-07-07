@@ -26,6 +26,7 @@ import com.github.bakuplayz.cropclick.crop.crops.base.Crop;
 import com.github.bakuplayz.cropclick.crop.crops.base.GroundCrop;
 import com.github.bakuplayz.cropclick.crop.seeds.base.Seed;
 import com.github.bakuplayz.cropclick.crop.seeds.ground.PoisonousPotato;
+import com.github.bakuplayz.spigotspin.utils.XMaterial;
 import org.bukkit.Material;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
@@ -103,8 +104,8 @@ public final class Potato extends GroundCrop {
      * @return the crop's menu type.
      */
     @Override
-    public @NotNull Material getMenuType() {
-        return Material.POTATO;
+    public @NotNull XMaterial getMenuType() {
+        return XMaterial.POTATO;
     }
 
 

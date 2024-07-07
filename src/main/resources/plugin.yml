@@ -7,11 +7,11 @@ main: com.github.bakuplayz.cropclick.CropClick
 softdepend:
   - Jobs
   - mcMMO
-  - Residence
   - Towny
+  - Residence
   - WorldEdit
   - WorldGuard
-  - AureliumSkills
+  - AuraSkills
 
 commands:
   cropclick:

@@ -21,11 +21,11 @@ package com.github.bakuplayz.cropclick.commands.subcommands;
 
 import com.github.bakuplayz.cropclick.CropClick;
 import com.github.bakuplayz.cropclick.commands.Subcommand;
-import com.github.bakuplayz.cropclick.language.LanguageAPI;
-import com.github.bakuplayz.cropclick.menu.menus.main.AutofarmsMenu;
-import com.github.bakuplayz.cropclick.menu.states.AutofarmsMenuState;
+import com.github.bakuplayz.cropclick.menus.AutofarmsMenu;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
+
+import static com.github.bakuplayz.cropclick.language.LanguageAPI.Command.AUTOFARM_DESCRIPTION;
 
 
 /**
@@ -38,7 +38,7 @@ import org.jetbrains.annotations.NotNull;
 public final class AutofarmsCommand extends Subcommand {
 
     public AutofarmsCommand(@NotNull CropClick plugin) {
-        super(plugin, "autofarms", LanguageAPI.Command.AUTOFARM_DESCRIPTION);
+        super(plugin, "autofarms", AUTOFARM_DESCRIPTION);
     }
 
 
@@ -50,11 +50,7 @@ public final class AutofarmsCommand extends Subcommand {
      */
     @Override
     public void perform(@NotNull Player player, String[] args) {
-        new AutofarmsMenu(
-                plugin,
-                player,
-                AutofarmsMenuState.COMMAND
-        ).openMenu();
+        new AutofarmsMenu(plugin, false).open(player);
     }
 
 }

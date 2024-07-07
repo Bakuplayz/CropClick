@@ -24,7 +24,7 @@ import com.github.bakuplayz.cropclick.autofarm.Autofarm;
 import com.github.bakuplayz.cropclick.autofarm.AutofarmManager;
 import com.github.bakuplayz.cropclick.crop.crops.base.Crop;
 import com.github.bakuplayz.cropclick.events.player.interact.PlayerInteractAtCropEvent;
-import com.github.bakuplayz.cropclick.menu.menus.links.CropLinkMenu;
+import com.github.bakuplayz.cropclick.menus.links.CropLinkMenu;
 import com.github.bakuplayz.cropclick.utils.AutofarmUtils;
 import com.github.bakuplayz.cropclick.utils.PermissionUtils;
 import org.bukkit.block.Block;
@@ -45,6 +45,7 @@ import org.jetbrains.annotations.NotNull;
 public final class PlayerInteractAtCropListener implements Listener {
 
     private final CropClick plugin;
+
     private final AutofarmManager autofarmManager;
 
 
@@ -92,16 +93,11 @@ public final class PlayerInteractAtCropListener implements Listener {
 
         if (plugin.isDebugging()) {
             plugin.getLogger()
-                  .info(String.format("%s (Player): Called the interact at crop event!", player.getName()));
+                    .info(String.format("%s (Player): Called the interact at crop event!", player.getName()));
         }
 
 
-        new CropLinkMenu(
-                plugin,
-                player,
-                block,
-                autofarm
-        ).openMenu();
+        new CropLinkMenu(plugin, autofarm, block, false).open(player);
     }
 
 }

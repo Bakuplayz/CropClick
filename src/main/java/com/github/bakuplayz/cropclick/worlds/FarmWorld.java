@@ -41,15 +41,24 @@ import java.util.List;
  * @version 2.0.0
  * @since 2.0.0
  */
+@Getter
 @ToString
 @EqualsAndHashCode
 public final class FarmWorld {
 
-    private final @Getter String name;
+    private final String name;
 
-    private @Setter @Getter @Accessors(fluent = true) boolean isBanished;
-    private @Setter @Getter @Accessors(fluent = true) boolean allowsPlayers;
-    private @Setter @Getter @Accessors(fluent = true) boolean allowsAutofarms;
+    @Setter
+    @Accessors(fluent = true)
+    private boolean isBanished;
+
+    @Setter
+    @Accessors(fluent = true)
+    private boolean allowsPlayers;
+
+    @Setter
+    @Accessors(fluent = true)
+    private boolean allowsAutofarms;
 
     /**
      * A variable containing all the banished addons in the {@link FarmWorld farm world}.
@@ -69,7 +78,8 @@ public final class FarmWorld {
                      boolean isBanished,
                      boolean allowsPlayers,
                      boolean allowsAutofarms,
-                     List<Addon> banishedAddons) {
+                     List<Addon> banishedAddons
+    ) {
         this.allowsAutofarms = allowsAutofarms;
         this.banishedAddons = banishedAddons;
         this.allowsPlayers = allowsPlayers;

@@ -29,8 +29,10 @@ import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Unmodifiable;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
@@ -227,7 +229,9 @@ public final class LanguageAPI {
         }
 
         private final String placeholder;
+
         private final String category;
+
         private final String key;
 
 
@@ -249,7 +253,6 @@ public final class LanguageAPI {
          * Gets the message from the {@link LanguageConfig language config}.
          *
          * @param plugin the plugin instance.
-         *
          * @return the message found in the config.
          */
         public @NotNull String get(@NotNull CropClick plugin) {
@@ -262,7 +265,6 @@ public final class LanguageAPI {
          *
          * @param plugin the plugin instance.
          * @param value  the replacement value.
-         *
          * @return the message found in the config, replaced with the provided value.
          */
         public @NotNull String get(@NotNull CropClick plugin, @NotNull String value) {
@@ -330,8 +332,8 @@ public final class LanguageAPI {
 
         MCMMO_CROP_TITLE(Category.TITLE, "mcMMOCrop"),
         MCMMO_TITLE(Category.TITLE, "mcMMO"),
-        AURELIUM_CROP_TITLE(Category.TITLE, "aureliumCrop"),
-        AURELIUM_TITLE(Category.TITLE, "aurelium"),
+        AURA_SKILLS_CROP_TITLE(Category.TITLE, "auraSkillsCrop"),
+        AURA_SKILLS_TITLE(Category.TITLE, "auraSkills"),
         JOBS_CROP_TITLE(Category.TITLE, "jobsRebornCrop"),
         JOBS_REBORN_TITLE(Category.TITLE, "jobsReborn"),
         WORLD_GUARD_TITLE(Category.TITLE, "worldGuard"),
@@ -368,9 +370,9 @@ public final class LanguageAPI {
         ADDONS_MCMMO_ITEM_STATUS(Category.ADDONS, SubCategory.MCMMO, "itemStatus", "%status%"),
         ADDONS_MCMMO_ITEM_TIPS(Category.ADDONS, SubCategory.MCMMO, "itemTips"),
 
-        ADDONS_AURELIUM_ITEM_NAME(Category.ADDONS, SubCategory.AURELIUM, "itemName"),
-        ADDONS_AURELIUM_ITEM_STATUS(Category.ADDONS, SubCategory.AURELIUM, "itemStatus", "%status%"),
-        ADDONS_AURELIUM_ITEM_TIPS(Category.ADDONS, SubCategory.AURELIUM, "itemTips"),
+        ADDONS_SKILLS_ITEM_NAME(Category.ADDONS, SubCategory.AURA_SKILLS, "itemName"),
+        ADDONS_SKILLS_ITEM_STATUS(Category.ADDONS, SubCategory.AURA_SKILLS, "itemStatus", "%status%"),
+        ADDONS_SKILLS_ITEM_TIPS(Category.ADDONS, SubCategory.AURA_SKILLS, "itemTips"),
 
         ADDONS_RESIDENCE_ITEM_NAME(Category.ADDONS, SubCategory.RESIDENCE, "itemName"),
         ADDONS_RESIDENCE_ITEM_STATUS(Category.ADDONS, SubCategory.RESIDENCE, "itemStatus", "%status%"),
@@ -395,8 +397,8 @@ public final class LanguageAPI {
         ADDON_MCMMO_ITEM_NAME(Category.ADDON, SubCategory.MCMMO, "itemName", "%status%"),
         ADDON_MCMMO_ITEM_TIPS(Category.ADDON, SubCategory.MCMMO, "itemTips"),
 
-        ADDON_AURELIUM_ITEM_NAME(Category.ADDON, SubCategory.AURELIUM, "itemName", "%status%"),
-        ADDON_AURELIUM_ITEM_TIPS(Category.ADDON, SubCategory.AURELIUM, "itemTips"),
+        ADDON_SKILLS_ITEM_NAME(Category.ADDON, SubCategory.AURA_SKILLS, "itemName", "%status%"),
+        ADDON_SKILLS_ITEM_TIPS(Category.ADDON, SubCategory.AURA_SKILLS, "itemTips"),
 
         ADDON_RESIDENCE_ITEM_NAME(Category.ADDON, SubCategory.RESIDENCE, "itemName", "%status%"),
         ADDON_RESIDENCE_ITEM_TIPS(Category.ADDON, SubCategory.RESIDENCE, "itemTips"),
@@ -418,7 +420,7 @@ public final class LanguageAPI {
         CROPS_ITEM_JOBS_MONEY(Category.CROPS, SubCategory.ITEM, "jobsMoney", "%status%"),
         CROPS_ITEM_JOBS_POINTS(Category.CROPS, SubCategory.ITEM, "jobsPoints", "%status%"),
         CROPS_ITEM_MMO_EXPERIENCE(Category.CROPS, SubCategory.ITEM, "mcMMOExperience", "%status%"),
-        CROPS_ITEM_AURELIUM_EXPERIENCE(Category.CROPS, SubCategory.ITEM, "aureliumExperience", "%status%"),
+        CROPS_ITEM_AURA_SKILLS_EXPERIENCE(Category.CROPS, SubCategory.ITEM, "auraSkillsExperience", "%status%"),
         CROPS_ITEM_NAME(Category.CROPS, SubCategory.ITEM, "name", "%name%", "%status%"),
         CROPS_ITEM_PARTICLES(Category.CROPS, SubCategory.ITEM, "particles", "%status%"),
         CROPS_ITEM_SOUNDS(Category.CROPS, SubCategory.ITEM, "sounds", "%status%"),
@@ -538,13 +540,13 @@ public final class LanguageAPI {
         MCMMO_CROP_REMOVE_ITEM_AFTER(Category.MCMMO_CROP, SubCategory.REMOVE, "itemAfter", "%value%"),
         MCMMO_CROP_REMOVE_ITEM_NAME(Category.MCMMO_CROP, SubCategory.REMOVE, "itemName", "%amount%", "%type%"),
 
-        AURELIUM_CROP_EXPERIENCE_ITEM_NAME(Category.AURELIUM_CROP, SubCategory.EXPERIENCE, "itemName"),
-        AURELIUM_CROP_EXPERIENCE_ITEM_TIPS(Category.AURELIUM_CROP, SubCategory.EXPERIENCE, "itemTips"),
-        AURELIUM_CROP_EXPERIENCE_ITEM_VALUE(Category.AURELIUM_CROP, SubCategory.EXPERIENCE, "itemValue", "%value%"),
-        AURELIUM_CROP_ADD_ITEM_AFTER(Category.AURELIUM_CROP, SubCategory.ADD, "itemAfter", "%value%"),
-        AURELIUM_CROP_ADD_ITEM_NAME(Category.AURELIUM_CROP, SubCategory.ADD, "itemName", "%amount%", "%type%"),
-        AURELIUM_CROP_REMOVE_ITEM_AFTER(Category.AURELIUM_CROP, SubCategory.REMOVE, "itemAfter", "%value%"),
-        AURELIUM_CROP_REMOVE_ITEM_NAME(Category.AURELIUM_CROP, SubCategory.REMOVE, "itemName", "%amount%", "%type%"),
+        AURA_SKILLS_CROP_EXPERIENCE_ITEM_NAME(Category.AURA_SKILLS_CROP, SubCategory.EXPERIENCE, "itemName"),
+        AURA_SKILLS_CROP_EXPERIENCE_ITEM_TIPS(Category.AURA_SKILLS_CROP, SubCategory.EXPERIENCE, "itemTips"),
+        AURA_SKILLS_CROP_EXPERIENCE_ITEM_VALUE(Category.AURA_SKILLS_CROP, SubCategory.EXPERIENCE, "itemValue", "%value%"),
+        AURA_SKILLS_CROP_ADD_ITEM_AFTER(Category.AURA_SKILLS_CROP, SubCategory.ADD, "itemAfter", "%value%"),
+        AURA_SKILLS_CROP_ADD_ITEM_NAME(Category.AURA_SKILLS_CROP, SubCategory.ADD, "itemName", "%amount%", "%type%"),
+        AURA_SKILLS_CROP_REMOVE_ITEM_AFTER(Category.AURA_SKILLS_CROP, SubCategory.REMOVE, "itemAfter", "%value%"),
+        AURA_SKILLS_CROP_REMOVE_ITEM_NAME(Category.AURA_SKILLS_CROP, SubCategory.REMOVE, "itemName", "%amount%", "%type%"),
 
         NAME_COLOR_ITEM_CODE(Category.NAME, SubCategory.COLOR_CODE, "itemColor", "%code%", "%color%", "%name%"),
         NAME_COLOR_ITEM_NAME(Category.NAME, SubCategory.COLOR_CODE, "itemName"),
@@ -638,7 +640,7 @@ public final class LanguageAPI {
         WORLDS_ITEM_JOBS_TIPS(Category.WORLDS, "itemJobsTips"),
         WORLDS_ITEM_MCMMO_TIPS(Category.WORLDS, "itemMcMMOTips"),
         WORLDS_ITEM_GROWTH_TIPS(Category.WORLDS, "itemOfflineGrowthTips"),
-        WORLDS_ITEM_AURELIUM_TIPS(Category.WORLDS, "itemAureliumTips"),
+        WORLDS_ITEM_AURA_SKILLS_TIPS(Category.WORLDS, "itemAuraSkillsTips"),
         WORLDS_ITEM_RESIDENCE_TIPS(Category.WORLDS, "itemResidenceTips"),
         WORLDS_ITEM_TOWNY_TIPS(Category.WORLDS, "itemTownyTips"),
         WORLDS_ITEM_GUARD_TIPS(Category.WORLDS, "itemWorldGuardTips"),
@@ -671,7 +673,7 @@ public final class LanguageAPI {
             LINK,
             MAIN,
             MCMMO_CROP("mcMMOCrop"),
-            AURELIUM_CROP("aureliumCrop"),
+            AURA_SKILLS_CROP("auraSkillsCrop"),
             NAME,
             PARTICLE,
             PARTICLES,
@@ -721,7 +723,7 @@ public final class LanguageAPI {
             AMOUNT,
             AT_LEAST("atLeastOne"),
             AUTOFARMS,
-            AURELIUM,
+            AURA_SKILLS("auraSkills"),
             COLOR_CODE("colorCode"),
             CONSOLE,
             CONTAINER,
@@ -799,7 +801,9 @@ public final class LanguageAPI {
 
 
         private final String[] placeholders;
+
         private final String category;
+
         private final String key;
 
 
@@ -838,7 +842,6 @@ public final class LanguageAPI {
          * Gets the message from the {@link LanguageConfig language config}.
          *
          * @param plugin the plugin instance.
-         *
          * @return the message found in the config.
          */
         public @NotNull String get(@NotNull CropClick plugin) {
@@ -852,14 +855,13 @@ public final class LanguageAPI {
          * @param plugin the plugin instance.
          * @param values the values to replace the placeholders with.
          * @param <T>    the object provided.
-         *
          * @return the message found in the config, replaced with the provided values.
          */
         @SafeVarargs
         public final <T> @NotNull String get(@NotNull CropClick plugin, @NotNull T @NotNull ... values) {
             String[] valuesAsStrings = Arrays.stream(values)
-                                             .map(Object::toString)
-                                             .toArray(String[]::new);
+                    .map(Object::toString)
+                    .toArray(String[]::new);
             return format(get(plugin), valuesAsStrings);
         }
 
@@ -868,14 +870,13 @@ public final class LanguageAPI {
          * Gets the message from the {@link LanguageConfig language config}, as a list of four words per line.
          *
          * @param plugin the plugin instance.
-         *
          * @return the message found in the config as a list.
          */
         public @NotNull List<String> getAsList(@NotNull CropClick plugin) {
             String message = plugin.getLanguageConfig().getMessage("menu", category, key, false);
             return MessageUtils.readify(message, 4).stream()
-                               .map(MessageUtils::colorize)
-                               .collect(Collectors.toList());
+                    .map(MessageUtils::colorize)
+                    .collect(Collectors.toList());
         }
 
 
@@ -884,10 +885,9 @@ public final class LanguageAPI {
          *
          * @param plugin     the plugin instance.
          * @param appendable the appendable messages to append to the found message.
-         *
          * @return the message found in the config as a list.
          */
-        public @NotNull List<String> getAsList(@NotNull CropClick plugin, String @NotNull ... appendable) {
+        public @NotNull List<String> getAsAppendList(@NotNull CropClick plugin, String @NotNull ... appendable) {
             List<String> messages = getAsList(plugin);
             messages.add("");
             messages.addAll(Arrays.asList(appendable));
@@ -900,14 +900,21 @@ public final class LanguageAPI {
          *
          * @param plugin     the plugin instance.
          * @param appendable the appendable messages to append to the found message.
-         *
          * @return the message found in the config as a list.
          */
-        public @NotNull List<String> getAsList(@NotNull CropClick plugin, List<String> appendable) {
+        public @NotNull List<String> getAsAppendList(@NotNull CropClick plugin, List<String> appendable) {
             List<String> messages = getAsList(plugin);
             messages.add("");
             messages.addAll(appendable);
             return messages;
+        }
+
+
+        @NotNull
+        @SafeVarargs
+        @Unmodifiable
+        public final <T> List<String> getAsList(@NotNull CropClick plugin, @NotNull T @NotNull ... values) {
+            return Collections.singletonList(get(plugin, values));
         }
 
 
@@ -926,7 +933,6 @@ public final class LanguageAPI {
          * Gets the menu's title from the {@link LanguageConfig language config}.
          *
          * @param plugin the plugin instance.
-         *
          * @return the title found in the config.
          */
         public @NotNull String getTitle(@NotNull CropClick plugin) {
@@ -941,11 +947,10 @@ public final class LanguageAPI {
          *
          * @param plugin the plugin instance.
          * @param type   the menu type.
-         *
          * @return the title found in the config.
          */
         public @NotNull String getTitle(@NotNull CropClick plugin, @NotNull String type) {
-            if (type.equals("")) {
+            if (type.isEmpty()) {
                 return getTitle(plugin);
             }
 
@@ -959,7 +964,6 @@ public final class LanguageAPI {
          * Gets the error message from the {@link LanguageConfig language config}.
          *
          * @param plugin the plugin instance.
-         *
          * @return the error message found in the config.
          */
         private @NotNull String getErrorMessage(@NotNull CropClick plugin) {
@@ -972,7 +976,6 @@ public final class LanguageAPI {
          *
          * @param message the message to format.
          * @param values  the values to replace the placeholder with.
-         *
          * @return the formatted message.
          */
         private @NotNull String format(@NotNull String message, @NotNull String @NotNull ... values) {

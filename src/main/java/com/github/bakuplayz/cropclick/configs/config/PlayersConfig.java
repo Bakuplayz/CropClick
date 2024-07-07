@@ -23,7 +23,6 @@ import com.github.bakuplayz.cropclick.CropClick;
 import com.github.bakuplayz.cropclick.autofarm.container.Container;
 import com.github.bakuplayz.cropclick.configs.Config;
 import com.github.bakuplayz.cropclick.crop.crops.base.Crop;
-import com.github.bakuplayz.cropclick.menu.menus.links.Component;
 import com.github.bakuplayz.cropclick.utils.AutofarmUtils;
 import com.github.bakuplayz.cropclick.utils.CollectionUtils;
 import org.bukkit.Location;
@@ -130,7 +129,7 @@ public final class PlayersConfig extends Config {
 
 
     /**
-     * Deselects all the {@link Player provided player's} selected {@link Component autofarm components}.
+     * Deselects all the {@link Player provided player's} selected autofarm components.
      *
      * @param player the player to deselect all the components for.
      */
@@ -176,7 +175,7 @@ public final class PlayersConfig extends Config {
      * @return the selected crop's location, otherwise null.
      */
     public @Nullable Location getSelectedCrop(@NotNull Player player) {
-        return (Location) config.get(player.getUniqueId() + ".crop", null);
+        return config.getLocation(player.getUniqueId() + ".crop", null);
     }
 
 
@@ -188,7 +187,7 @@ public final class PlayersConfig extends Config {
      * @return the selected container's location, otherwise null.
      */
     public @Nullable Location getSelectedContainer(@NotNull Player player) {
-        return (Location) config.get(player.getUniqueId() + ".container", null);
+        return config.getLocation(player.getUniqueId() + ".container", null);
     }
 
 
@@ -200,7 +199,7 @@ public final class PlayersConfig extends Config {
      * @return the selected dispenser's location, otherwise null.
      */
     public @Nullable Location getSelectedDispenser(@NotNull Player player) {
-        return (Location) config.get(player.getUniqueId() + ".dispenser", null);
+        return config.getLocation(player.getUniqueId() + ".dispenser", null);
     }
 
 
@@ -264,6 +263,11 @@ public final class PlayersConfig extends Config {
      */
     public boolean isEnabled(@NotNull OfflinePlayer player) {
         return !getDisabledPlayers().contains(player.getUniqueId().toString());
+    }
+
+
+    public boolean isEnabled(@NotNull String playerId) {
+        return !getDisabledPlayers().contains(playerId);
     }
 
 

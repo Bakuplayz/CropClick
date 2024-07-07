@@ -23,6 +23,7 @@ import com.github.bakuplayz.cropclick.configs.config.CropsConfig;
 import com.github.bakuplayz.cropclick.crop.Drop;
 import com.github.bakuplayz.cropclick.crop.seeds.base.BaseSeed;
 import com.github.bakuplayz.cropclick.crop.seeds.base.Seed;
+import com.github.bakuplayz.spigotspin.utils.XMaterial;
 import org.bukkit.Material;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
@@ -76,8 +77,8 @@ public final class BeetrootSeed extends BaseSeed {
      * @return the seed's menu type.
      */
     @Override
-    public @NotNull Material getMenuType() {
-        return Material.BEETROOT_SEEDS;
+    public @NotNull XMaterial getMenuType() {
+        return XMaterial.BEETROOT_SEEDS;
     }
 
 }

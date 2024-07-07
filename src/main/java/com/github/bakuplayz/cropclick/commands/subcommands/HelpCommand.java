@@ -21,10 +21,11 @@ package com.github.bakuplayz.cropclick.commands.subcommands;
 
 import com.github.bakuplayz.cropclick.CropClick;
 import com.github.bakuplayz.cropclick.commands.Subcommand;
-import com.github.bakuplayz.cropclick.language.LanguageAPI;
-import com.github.bakuplayz.cropclick.menu.menus.main.HelpMenu;
+import com.github.bakuplayz.cropclick.menus.HelpMenu;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
+
+import static com.github.bakuplayz.cropclick.language.LanguageAPI.Command.HELP_DESCRIPTION;
 
 
 /**
@@ -37,7 +38,7 @@ import org.jetbrains.annotations.NotNull;
 public final class HelpCommand extends Subcommand {
 
     public HelpCommand(@NotNull CropClick plugin) {
-        super(plugin, "help", LanguageAPI.Command.HELP_DESCRIPTION);
+        super(plugin, "help", HELP_DESCRIPTION);
     }
 
 
@@ -49,7 +50,7 @@ public final class HelpCommand extends Subcommand {
      */
     @Override
     public void perform(@NotNull Player player, String[] args) {
-        new HelpMenu(plugin, player, false).openMenu();
+        new HelpMenu(plugin, false).open(player);
     }
 
 }

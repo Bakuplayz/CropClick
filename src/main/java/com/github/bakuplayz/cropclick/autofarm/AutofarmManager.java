@@ -25,7 +25,6 @@ import com.github.bakuplayz.cropclick.configs.config.PlayersConfig;
 import com.github.bakuplayz.cropclick.crop.CropManager;
 import com.github.bakuplayz.cropclick.crop.crops.base.Crop;
 import com.github.bakuplayz.cropclick.datastorages.datastorage.AutofarmDataStorage;
-import com.github.bakuplayz.cropclick.menu.menus.links.Component;
 import com.github.bakuplayz.cropclick.utils.AutofarmUtils;
 import com.github.bakuplayz.cropclick.utils.BlockUtils;
 import com.github.bakuplayz.cropclick.utils.Enableable;
@@ -51,8 +50,11 @@ import java.util.List;
 public final class AutofarmManager implements Enableable {
 
     private final @NotNull CropClick plugin;
+
     private final @NotNull CropManager cropManager;
+
     private final @NotNull PlayersConfig playersConfig;
+
     private final @NotNull AutofarmDataStorage farmStorage;
 
 
@@ -131,7 +133,7 @@ public final class AutofarmManager implements Enableable {
 
 
     /**
-     * Deselects all the {@link Player provided player's} selected {@link Component autofarm components}.
+     * Deselects all the {@link Player provided player's} selected {@link com.github.bakuplayz.cropclick.menus._links.Component autofarm components}.
      *
      * @param player the player to deselect all the components for.
      */
@@ -303,6 +305,12 @@ public final class AutofarmManager implements Enableable {
     @Override
     public boolean isEnabled() {
         return plugin.getConfig().getBoolean("autofarms.isEnabled", true);
+    }
+
+
+    public void setEnabled(boolean isEnabled) {
+        plugin.getConfig().set("autofarms.isEnabled", isEnabled);
+        plugin.saveConfig();
     }
 
 

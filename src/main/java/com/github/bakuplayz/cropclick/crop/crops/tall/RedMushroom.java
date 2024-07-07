@@ -25,6 +25,7 @@ import com.github.bakuplayz.cropclick.crop.crops.base.BaseCrop;
 import com.github.bakuplayz.cropclick.crop.crops.base.Crop;
 import com.github.bakuplayz.cropclick.crop.crops.base.Mushroom;
 import com.github.bakuplayz.cropclick.utils.BlockUtils;
+import com.github.bakuplayz.spigotspin.utils.XMaterial;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
@@ -75,7 +76,7 @@ public final class RedMushroom extends Mushroom {
         Stack<Block> stack = new Stack<>();
         stack.push(block);
 
-        while (stack.size() > 0) {
+        while (!stack.isEmpty()) {
             Block mushroom = stack.pop();
 
             if (!isMushroomType(mushroom)) {
@@ -138,8 +139,8 @@ public final class RedMushroom extends Mushroom {
      * @return the crop's menu type.
      */
     @Override
-    public @NotNull Material getMenuType() {
-        return Material.RED_MUSHROOM;
+    public @NotNull XMaterial getMenuType() {
+        return XMaterial.RED_MUSHROOM;
     }
 
 

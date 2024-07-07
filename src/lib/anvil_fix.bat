@@ -1,0 +1,1 @@
+mvn deploy:deploy-file -Dfile=./local-maven-repo/anvilgui-1.9.5.jar -DgroupId=net.wesjd.anvilgui -DartifactId=AnvilGUI -Dversion=1.9.5-REMAP -Dpackaging=jar -Durl=file:./local-maven-repo/ -DrepositoryId=local-maven-repo -DupdateReleaseInfo=true

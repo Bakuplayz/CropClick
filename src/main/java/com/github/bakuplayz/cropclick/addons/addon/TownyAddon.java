@@ -38,8 +38,11 @@ import org.jetbrains.annotations.NotNull;
  */
 public final class TownyAddon extends Addon {
 
+    public final static String NAME = "Towny";
+
+
     public TownyAddon(@NotNull CropClick plugin) {
-        super(plugin, "Towny");
+        super(plugin, NAME);
     }
 
 
@@ -47,7 +50,6 @@ public final class TownyAddon extends Addon {
      * Checks whether the {@link Player provided player} is allowed to destroy {@link Crop crops}.
      *
      * @param player the player to check.
-     *
      * @return true if allowed, otherwise false.
      */
     public boolean canDestroyCrop(@NotNull Player player) {

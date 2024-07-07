@@ -36,6 +36,8 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.logging.Logger;
 
+import static com.github.bakuplayz.cropclick.language.LanguageAPI.Menu.*;
+
 
 /**
  * A manager controlling the plugin's updates.
@@ -53,10 +55,17 @@ public final class UpdateManager {
 
     private final CropClick plugin;
 
-    private @Getter @Setter(AccessLevel.PRIVATE) String updateURL;
-    private @Getter @Setter(AccessLevel.PRIVATE) String updateTitle;
-    private @Getter @Setter(AccessLevel.PRIVATE) String updateMessage;
-    private @Getter @Setter(AccessLevel.PRIVATE) UpdateState updateState;
+    private @Getter
+    @Setter(AccessLevel.PRIVATE) String updateURL;
+
+    private @Getter
+    @Setter(AccessLevel.PRIVATE) String updateTitle;
+
+    private @Getter
+    @Setter(AccessLevel.PRIVATE) String updateMessage;
+
+    private @Getter
+    @Setter(AccessLevel.PRIVATE) UpdateState updateState;
 
 
     public UpdateManager(@NotNull CropClick plugin) {
@@ -79,8 +88,8 @@ public final class UpdateManager {
 
         if (updateState != UpdateState.NEW_UPDATE) {
             MessageUtils.readify(LanguageAPI.Update.UPDATE_FOUND_NO_UPDATES.get(), 10)
-                        .stream().map(MessageUtils::colorize)
-                        .forEach(player::sendMessage);
+                    .stream().map(MessageUtils::colorize)
+                    .forEach(player::sendMessage);
             return;
         }
 
@@ -211,19 +220,19 @@ public final class UpdateManager {
     public @NotNull String getUpdateStateMessage() {
         switch (updateState) {
             case NEW_UPDATE:
-                return LanguageAPI.Menu.GENERAL_STATES_NEW_UPDATE.get(plugin);
+                return GENERAL_STATES_NEW_UPDATE.get(plugin);
 
             case NO_UPDATE_FOUND:
-                return LanguageAPI.Menu.GENERAL_STATES_NO_UPDATE_FOUND.get(plugin);
+                return GENERAL_STATES_NO_UPDATE_FOUND.get(plugin);
 
             case UP_TO_DATE:
-                return LanguageAPI.Menu.GENERAL_STATES_UP_TO_DATE.get(plugin);
+                return GENERAL_STATES_UP_TO_DATE.get(plugin);
 
             case NOT_FETCHED_YET:
-                return LanguageAPI.Menu.GENERAL_STATES_NOT_YET_FETCHED.get(plugin);
+                return GENERAL_STATES_NOT_YET_FETCHED.get(plugin);
 
             default:
-                return LanguageAPI.Menu.GENERAL_STATES_FAILED_TO_FETCH.get(plugin);
+                return GENERAL_STATES_FAILED_TO_FETCH.get(plugin);
         }
     }
 
@@ -241,8 +250,8 @@ public final class UpdateManager {
     /**
      * Toggles the {@link #updateMessage update message} for {@link Player OP players}.
      */
-    public void toggleUpdatesPlayer() {
-        plugin.getConfig().set("updateMessage.player", !canPlayerReceiveUpdates());
+    public void setPlayerReceiveUpdates(boolean canReceive) {
+        plugin.getConfig().set("updateMessage.player", canReceive);
         plugin.saveConfig();
     }
 
@@ -260,7 +269,7 @@ public final class UpdateManager {
     /**
      * Toggles the {@link #updateMessage update message} for {@link ConsoleCommandSender the console}.
      */
-    public void toggleConsoleMessage() {
+    public void setConsoleReceiveUpdates(boolean canReceive) {
         plugin.getConfig().set("updateMessage.console", !canConsoleReceiveUpdates());
         plugin.saveConfig();
     }

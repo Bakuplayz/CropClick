@@ -21,8 +21,6 @@ package com.github.bakuplayz.cropclick.commands;
 
 import com.github.bakuplayz.cropclick.CropClick;
 import com.github.bakuplayz.cropclick.commands.subcommands.*;
-import com.github.bakuplayz.cropclick.language.LanguageAPI;
-import com.github.bakuplayz.cropclick.menu.menus.MainMenu;
 import com.github.bakuplayz.cropclick.permissions.command.CommandPermission;
 import com.github.bakuplayz.cropclick.utils.PermissionUtils;
 import lombok.Getter;
@@ -36,6 +34,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import static com.github.bakuplayz.cropclick.language.LanguageAPI.Command.*;
 
 
 /**
@@ -67,6 +67,7 @@ public final class CommandManager implements TabExecutor {
      * Register all the {@link #commands}.
      */
     private void registerCommands() {
+        commands.add(new DefaultCommand(plugin));
         commands.add(new AutofarmsCommand(plugin));
         commands.add(new HelpCommand(plugin));
         commands.add(new ReloadCommand(plugin));
@@ -86,12 +87,9 @@ public final class CommandManager implements TabExecutor {
      * @return true if the command executed successfully, otherwise false.
      */
     @Override
-    public boolean onCommand(@NotNull CommandSender sender,
-                             @NotNull Command cmd,
-                             @NotNull String label,
-                             String[] args) {
+    public boolean onCommand(@NotNull CommandSender sender, @NotNull Command cmd, @NotNull String label, String[] args) {
         if (!(sender instanceof Player)) {
-            LanguageAPI.Command.PLAYER_ONLY_COMMAND.send(plugin, sender);
+            PLAYER_ONLY_COMMAND.send(plugin, sender);
             return true;
         }
 
@@ -99,13 +97,11 @@ public final class CommandManager implements TabExecutor {
 
         if (args.length == 0) {
             if (!PermissionUtils.canPlayerExecuteGeneralCommand(player)) {
-                LanguageAPI.Command.PLAYER_LACK_PERMISSION.send(
-                        plugin, player, CommandPermission.GENERAL_COMMAND.getName()
-                );
+                PLAYER_LACK_PERMISSION.send(plugin, player, CommandPermission.GENERAL_COMMAND.getName());
                 return true;
             }
 
-            new MainMenu(plugin, player).openMenu();
+            commands.get(0).perform(player, args);
             return true;
         }
 
@@ -115,16 +111,12 @@ public final class CommandManager implements TabExecutor {
                     continue;
                 }
 
-                LanguageAPI.Command.COMMAND_NOT_FOUND.send(
-                        plugin, player, args[0]
-                );
+                COMMAND_NOT_FOUND.send(plugin, player, args[0]);
                 return true;
             }
 
             if (!command.hasPermission(player)) {
-                LanguageAPI.Command.PLAYER_LACK_PERMISSION.send(
-                        plugin, player, command.getPermission()
-                );
+                PLAYER_LACK_PERMISSION.send(plugin, player, command.getPermission());
                 return true;
             }
 
@@ -147,18 +139,15 @@ public final class CommandManager implements TabExecutor {
      * @return the tab completed suggestions.
      */
     @Override
-    public List<String> onTabComplete(@NotNull CommandSender sender,
-                                      @NotNull Command cmd,
-                                      @NotNull String alias,
-                                      String @NotNull [] args) {
+    public List<String> onTabComplete(@NotNull CommandSender sender, @NotNull Command cmd, @NotNull String alias, String @NotNull [] args) {
         if (args.length != 1) {
             return Collections.emptyList();
         }
 
         return commands.stream()
-                       .map(Subcommand::getName)
-                       .filter(command -> command.startsWith(args[0]))
-                       .sorted().collect(Collectors.toList());
+                .map(Subcommand::getName)
+                .filter(command -> command.startsWith(args[0]))
+                .sorted().collect(Collectors.toList());
     }
 
 
@@ -168,7 +157,7 @@ public final class CommandManager implements TabExecutor {
      * @return the amount of commands.
      */
     public int getAmountOfCommands() {
-        return getCommands().size() + 1;
+        return getCommands().size();
     }
 
 }

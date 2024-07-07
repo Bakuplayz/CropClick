@@ -19,6 +19,8 @@
 
 package com.github.bakuplayz.cropclick.yaml;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -38,6 +40,7 @@ public interface Yamlable {
      *
      * @return a {@link HashMap YAML-formatted HashMap}.
      */
+    @NotNull
     Map<String, Object> toYaml();
 
 }

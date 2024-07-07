@@ -21,12 +21,8 @@ package com.github.bakuplayz.cropclick.yaml;
 
 import com.github.bakuplayz.cropclick.runnables.sounds.Sound;
 import com.github.bakuplayz.cropclick.utils.Enableable;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import lombok.experimental.Accessors;
-import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
@@ -40,31 +36,30 @@ import java.util.Map;
  * @version 2.0.0
  * @since 2.0.0
  */
+@Setter
+@Getter
 @ToString
 @EqualsAndHashCode
+@AllArgsConstructor
 public final class SoundYaml implements Yamlable, Enableable {
 
     /**
      * The given delay before playing the sound ({@link Sound#MIN_DELAY min delay} & {@link Sound#MAX_DELAY max delay}).
      */
-    private @Setter @Getter @Accessors(chain = true) double delay;
+    @Accessors(chain = true)
+    private double delay;
 
     /**
      * The given pitch the sound should be played at ({@link Sound#MIN_PITCH min pitch} & {@link Sound#MAX_PITCH max pitch}).
      */
-    private @Setter @Getter @Accessors(chain = true) double pitch;
+    @Accessors(chain = true)
+    private double pitch;
 
     /**
      * The given range-in-blocks or volume the sound should be played at ({@link Sound#MIN_VOLUME min volume} & {@link Sound#MAX_VOLUME max volume}).
      */
-    private @Setter @Getter @Accessors(chain = true) double volume;
-
-
-    public SoundYaml(double delay, double pitch, double volume) {
-        this.delay = delay;
-        this.pitch = pitch;
-        this.volume = volume;
-    }
+    @Accessors(chain = true)
+    private double volume;
 
 
     /**
@@ -72,9 +67,9 @@ public final class SoundYaml implements Yamlable, Enableable {
      *
      * @return a {@link HashMap YAML-formatted HashMap}.
      */
+    @NotNull
     @Override
-    @Contract(" -> new")
-    public @NotNull Map<String, Object> toYaml() {
+    public Map<String, Object> toYaml() {
         return new HashMap<String, Object>() {{
             put("delay", delay);
             put("pitch", pitch);

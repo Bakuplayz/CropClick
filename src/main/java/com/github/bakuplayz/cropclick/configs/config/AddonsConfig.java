@@ -44,7 +44,6 @@ public final class AddonsConfig extends Config {
      * Checks whether the {@link Addon addon} is installed based on the provided name.
      *
      * @param addonName the name of the addon.
-     *
      * @return true if installed, otherwise false.
      */
     public boolean isInstalled(@NotNull String addonName) {
@@ -56,7 +55,6 @@ public final class AddonsConfig extends Config {
      * Checks whether the {@link Addon addon} is enabled based on the provided name.
      *
      * @param addonName the name of the addon.
-     *
      * @return true if enabled, otherwise false.
      */
     public boolean isEnabled(@NotNull String addonName) {
@@ -71,6 +69,12 @@ public final class AddonsConfig extends Config {
      */
     public void toggleAddon(@NotNull String addonName) {
         config.set("addons." + addonName + ".isEnabled", !isEnabled(addonName));
+        saveConfig();
+    }
+
+
+    public void setAddonState(@NotNull String name, boolean state) {
+        config.set(String.format("addons.%s.isEnabled", name), state);
         saveConfig();
     }
 

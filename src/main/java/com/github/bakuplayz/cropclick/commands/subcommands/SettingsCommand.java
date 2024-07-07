@@ -21,10 +21,11 @@ package com.github.bakuplayz.cropclick.commands.subcommands;
 
 import com.github.bakuplayz.cropclick.CropClick;
 import com.github.bakuplayz.cropclick.commands.Subcommand;
-import com.github.bakuplayz.cropclick.language.LanguageAPI;
-import com.github.bakuplayz.cropclick.menu.menus.main.SettingsMenu;
+import com.github.bakuplayz.cropclick.menus.SettingsMenu;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
+
+import static com.github.bakuplayz.cropclick.language.LanguageAPI.Command.SETTINGS_DESCRIPTION;
 
 
 /**
@@ -37,7 +38,7 @@ import org.jetbrains.annotations.NotNull;
 public final class SettingsCommand extends Subcommand {
 
     public SettingsCommand(@NotNull CropClick plugin) {
-        super(plugin, "settings", LanguageAPI.Command.SETTINGS_DESCRIPTION);
+        super(plugin, "settings", SETTINGS_DESCRIPTION);
     }
 
 
@@ -49,7 +50,7 @@ public final class SettingsCommand extends Subcommand {
      */
     @Override
     public void perform(@NotNull Player player, String[] args) {
-        new SettingsMenu(plugin, player, false).openMenu();
+        new SettingsMenu(plugin, false).open(player);
     }
 
 }

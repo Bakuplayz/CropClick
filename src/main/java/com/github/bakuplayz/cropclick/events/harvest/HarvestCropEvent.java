@@ -37,15 +37,17 @@ import org.jetbrains.annotations.NotNull;
  * @version 2.0.0
  * @since 2.0.0
  */
+@Getter
 public abstract class HarvestCropEvent extends Event implements Cancellable {
 
-    private final @Getter Crop crop;
-    private final @Getter Block block;
+    private final Crop crop;
+
+    private final Block block;
 
     /**
      * Checks whether the event is cancelled or not.
      */
-    private @Setter @Getter boolean cancelled;
+    private @Setter boolean cancelled;
 
 
     public HarvestCropEvent(@NotNull Crop crop, @NotNull Block block) {

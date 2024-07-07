@@ -86,7 +86,7 @@ public final class LocationTypeAdapter implements JsonSerializer<Location>, Json
                 body.get("world").getAsString()
         );
         return new Location(
-                world == null ? Bukkit.getWorlds().get(0) : world,
+                world == null ? Bukkit.getWorld("world") : world,
                 body.get("x").getAsDouble(),
                 body.get("y").getAsDouble(),
                 body.get("z").getAsDouble()

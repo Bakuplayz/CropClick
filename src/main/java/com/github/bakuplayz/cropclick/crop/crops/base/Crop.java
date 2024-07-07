@@ -25,6 +25,7 @@ import com.github.bakuplayz.cropclick.crop.Drop;
 import com.github.bakuplayz.cropclick.crop.seeds.base.Seed;
 import com.github.bakuplayz.cropclick.runnables.particles.Particle;
 import com.github.bakuplayz.cropclick.runnables.sounds.Sound;
+import com.github.bakuplayz.spigotspin.utils.XMaterial;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
@@ -187,7 +188,7 @@ public interface Crop {
      * @return the crop's menu type.
      */
     @NotNull
-    Material getMenuType();
+    XMaterial getMenuType();
 
     /**
      * Checks whether the implementing crop is linkable to an {@link Autofarm}.

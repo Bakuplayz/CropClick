@@ -21,15 +21,6 @@ package com.github.bakuplayz.cropclick.addons.addon;
 
 import com.github.bakuplayz.cropclick.CropClick;
 import com.github.bakuplayz.cropclick.addons.addon.base.Addon;
-import com.sk89q.worldedit.math.BlockVector3;
-import com.sk89q.worldedit.world.World;
-import com.sk89q.worldguard.WorldGuard;
-import com.sk89q.worldguard.domains.DefaultDomain;
-import com.sk89q.worldguard.protection.ApplicableRegionSet;
-import com.sk89q.worldguard.protection.flags.StateFlag;
-import com.sk89q.worldguard.protection.managers.RegionManager;
-import com.sk89q.worldguard.protection.regions.ProtectedRegion;
-import com.sk89q.worldguard.protection.regions.RegionContainer;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
@@ -44,14 +35,16 @@ import org.jetbrains.annotations.NotNull;
  */
 public final class WorldGuardAddon extends Addon {
 
-    private final StateFlag cropFlag;
-    private final WorldGuard worldGuard;
+    //  private final StateFlag cropFlag;
+    //  private final WorldGuard worldGuard;
+
+    public final static String NAME = "WorldGuard";
 
 
     public WorldGuardAddon(@NotNull CropClick plugin) {
-        super(plugin, "WorldGuard");
-        this.worldGuard = WorldGuard.getInstance();
-        this.cropFlag = new StateFlag("cropclick", true);
+        super(plugin, NAME);
+        //    this.worldGuard = WorldGuard.getInstance();
+        //this.cropFlag = new StateFlag("cropclick", true);
 
         registerFlag();
     }
@@ -62,9 +55,9 @@ public final class WorldGuardAddon extends Addon {
      */
     private void registerFlag() {
         try {
-            if (worldGuard.getFlagRegistry().get("cropclick") == null) {
-                worldGuard.getFlagRegistry().register(cropFlag);
-            }
+            //    if (worldGuard.getFlagRegistry().get("cropclick") == null) {
+            //   worldGuard.getFlagRegistry().register(cropFlag);
+            //}
         } catch (Exception e) {
             // throw away this garbage handling of a plugin.
         }
@@ -75,32 +68,31 @@ public final class WorldGuardAddon extends Addon {
      * Checks whether a region allows the {@link Player provided player}.
      *
      * @param player the player to check.
-     *
      * @return true if allowed, otherwise false.
      */
     public boolean regionAllowsPlayer(@NotNull Player player) {
-        RegionContainer container = worldGuard.getPlatform().getRegionContainer();
-        RegionManager manager = container.get((World) player.getWorld());
-        if (manager == null) {
-            return false;
-        }
+        //    RegionContainer container = worldGuard.getPlatform().getRegionContainer();
+        // RegionManager manager = container.get((World) player.getWorld());
+        //if (manager == null) {
+        //   return false;
+        //}
 
         Location location = player.getLocation();
-        BlockVector3 position = BlockVector3.at(
-                location.getBlockX(),
-                location.getBlockY(),
-                location.getBlockZ()
-        );
-        if (position == null) {
-            return false;
-        }
+        // BlockVector3 position = BlockVector3.at(
+        //        location.getBlockX(),
+        //       location.getBlockY(),
+        //        location.getBlockZ()
+        //);
+        //if (position == null) {
+        //   return false;
+        //}
 
-        ApplicableRegionSet foundRegions = manager.getApplicableRegions(position);
-        for (ProtectedRegion region : foundRegions) {
-            if (region == null) continue;
-            if (region.getFlag(cropFlag) == null) return false;
-            if (isMemberOfRegion(region, player)) return true;
-        }
+        //ApplicableRegionSet foundRegions = manager.getApplicableRegions(position);
+        //for (ProtectedRegion region : foundRegions) {
+        //  if (region == null) continue;
+        //  if (region.getFlag(cropFlag) == null) return false;
+        //  if (isMemberOfRegion(region, player)) return true;
+        //}
         return false;
     }
 
@@ -113,10 +105,10 @@ public final class WorldGuardAddon extends Addon {
      *
      * @return true if member, otherwise false.
      */
-    private boolean isMemberOfRegion(@NotNull ProtectedRegion region, @NotNull Player player) {
+    /*private boolean isMemberOfRegion(@NotNull ProtectedRegion region, @NotNull Player player) {
         DefaultDomain members = region.getMembers();
         DefaultDomain owners = region.getOwners();
         return members.contains(player.getUniqueId()) || owners.contains(player.getUniqueId());
-    }
+    }*/
 
 }

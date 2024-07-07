@@ -36,8 +36,11 @@ import org.jetbrains.annotations.NotNull;
  */
 public final class OfflineGrowthAddon extends Addon {
 
+    public final static String NAME = "OfflineGrowth";
+
+
     public OfflineGrowthAddon(@NotNull CropClick plugin) {
-        super(plugin, "OfflineGrowth");
+        super(plugin, NAME);
     }
 
 
