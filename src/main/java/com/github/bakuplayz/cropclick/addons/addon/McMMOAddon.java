@@ -55,11 +55,7 @@ public final class McMMOAddon extends Addon {
      * @param crop   the crop to base the experience on.
      */
     public void addExperience(@NotNull Player player, @NotNull Crop crop) {
-        ExperienceAPI.addRawXP(player,
-                "Herbalism",
-                getExperience(crop.getName()),
-                "UNKNOWN"
-        );
+        ExperienceAPI.addRawXP(player, "Herbalism", getExperience(crop.getName()), "UNKNOWN");
     }
 
 
@@ -67,6 +63,7 @@ public final class McMMOAddon extends Addon {
      * Gets the {@link McMMOAddon mcMMO} experience for the {@link Crop provided crop}.
      *
      * @param cropName the name of the crop.
+     *
      * @return the experience for the crop.
      */
     private int getExperience(@NotNull String cropName) {

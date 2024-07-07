@@ -68,10 +68,8 @@ public final class JobsRebornAddon extends Addon {
 
         String cropName = crop.getName();
         jobsPlayer.addPoints(getPoints(cropName));
-        jobsPlayer.getJobProgression(farmerJob)
-                .addExperience(getExperience(cropName));
-        jobsPlayer.getPaymentLimit()
-                .addNewAmount(CurrencyType.MONEY, getMoney(cropName));
+        jobsPlayer.getJobProgression(farmerJob).addExperience(getExperience(cropName));
+        jobsPlayer.getPaymentLimit().addNewAmount(CurrencyType.MONEY, getMoney(cropName));
 
         Jobs.getBBManager().ShowJobProgression(jobsPlayer);
     }
@@ -81,6 +79,7 @@ public final class JobsRebornAddon extends Addon {
      * Gets the {@link JobsRebornAddon JobsRebon} points for the {@link Crop provided crop}.
      *
      * @param cropName the name of the crop.
+     *
      * @return the points for the crop.
      */
     private double getPoints(@NotNull String cropName) {
@@ -92,6 +91,7 @@ public final class JobsRebornAddon extends Addon {
      * Gets the {@link JobsRebornAddon JobsRebon} experience for the {@link Crop provided crop}.
      *
      * @param cropName the name of the crop.
+     *
      * @return the experience for the crop.
      */
     private double getExperience(@NotNull String cropName) {
@@ -103,6 +103,7 @@ public final class JobsRebornAddon extends Addon {
      * Gets the {@link JobsRebornAddon JobsRebon} money for the {@link Crop provided crop}.
      *
      * @param cropName the name of the crop.
+     *
      * @return the money for the crop.
      */
     private double getMoney(@NotNull String cropName) {

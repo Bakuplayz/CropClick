@@ -1,1 +1,1 @@
-mvn deploy:deploy-file -Dfile=./local-maven-repo/Residence5.0.1.3.jar -DgroupId=com.bekvon.bukkit -DartifactId=Residence -Dversion=5.0.1.3 -Dpackaging=jar -Durl=file:./local-maven-repo/ -DrepositoryId=local-maven-repo -DupdateReleaseInfo=true
+mvn deploy:deploy-file -Dfile=./local-maven-repo/Residence5.1.5.0.jar -DgroupId=com.bekvon.bukkit -DartifactId=Residence -Dversion=5.1.5.0 -Dpackaging=jar -Durl=file:./local-maven-repo/ -DrepositoryId=local-maven-repo -DupdateReleaseInfo=true

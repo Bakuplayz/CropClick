@@ -50,7 +50,6 @@ public final class ResidenceAddon extends Addon {
 
     public ResidenceAddon(@NotNull CropClick plugin) {
         super(plugin, NAME);
-
         registerFlag();
     }
 
@@ -68,6 +67,7 @@ public final class ResidenceAddon extends Addon {
      * Checks whether the {@link Player provided player} is a member of the region it is in.
      *
      * @param player the player to check.
+     *
      * @return true if member, otherwise false.
      */
     public boolean isMemberOfRegion(@NotNull Player player) {
@@ -80,6 +80,7 @@ public final class ResidenceAddon extends Addon {
      * Checks whether the {@link Location provided location} or region has the {@link #cropFlag crop flag}.
      *
      * @param location the location/region to check.
+     *
      * @return true if it has, otherwise false.
      */
     public boolean hasRegionFlag(@NotNull Location location) {
@@ -92,9 +93,11 @@ public final class ResidenceAddon extends Addon {
      * Finds the {@link ResidencePermissions residence permissions} at the {@link Location provided location}.
      *
      * @param location the location to get the permissions from.
+     *
      * @return the found permissions, otherwise null.
      */
-    private @Nullable ResidencePermissions findPermissionsByLocation(@NotNull Location location) {
+    @Nullable
+    private ResidencePermissions findPermissionsByLocation(@NotNull Location location) {
         ResidenceManager manager = Residence.getInstance().getResidenceManager();
         if (manager == null) {
             return null;
