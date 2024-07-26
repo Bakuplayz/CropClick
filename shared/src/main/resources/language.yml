@@ -1,0 +1,599 @@
+####################################################################################
+#                                                                                  #
+#   $$$$$$\                                 $$$$$$\  $$\ $$\           $$\         #
+#  $$  __$$\                               $$  __$$\ $$ |\__|          $$ |        #
+#  $$ /  \__| $$$$$$\   $$$$$$\   $$$$$$\  $$ /  \__|$$ |$$\  $$$$$$$\ $$ |  $$\   #
+#  $$ |      $$  __$$\ $$  __$$\ $$  __$$\ $$ |      $$ |$$ |$$  _____|$$ | $$  |  #
+#  $$ |      $$ |  \__|$$ /  $$ |$$ /  $$ |$$ |      $$ |$$ |$$ /      $$$$$$  /   #
+#  $$ |  $$\ $$ |      $$ |  $$ |$$ |  $$ |$$ |  $$\ $$ |$$ |$$ |      $$  _$$<    #
+#  \$$$$$$  |$$ |      \$$$$$$  |$$$$$$$  |\$$$$$$  |$$ |$$ |\$$$$$$$\ $$ | \$$\   #
+#   \______/ \__|       \______/ $$  ____/  \______/ \__|\__| \_______|\__|  \__|  #
+#                                $$ |                                              #
+#                                $$ |                                              #
+#                                \__|                                              #
+#                                                                                  #
+####################################################################################
+#                                                                                  #
+#   DEVELOPER CONTACT:                                                             #
+#                                                                                  #
+#   You can reach me via the links below. May it be an issue with CropClick        #
+#   or anything code related you can find me here:                                 #
+#                                                                                  #
+#   Discord: https://discord.gg/HqQqz2Z (Faster replies)                           #
+#   Spigot: https://www.spigotmc.org/resources/craftinggui.72420/                  #
+#                                                                                  #
+####################################################################################
+#                                                                                  #
+#   USAGE:                                                                         #
+#                                                                                  #
+#   This configuration is used to configure the language in menus as well as       #
+#   commands, allowing you to translate CropClick to your own tongue. It can       #
+#   currently only be found in English, however, in the future you may find        #
+#   more.                                                                          #
+#                                                                                  #
+#   OBS! keep note to follow the color code prefixed with '&' also make            #
+#        sure to keep every '%tag%', since they will automatically be              #
+#        filled in by CropClick.                                                   #
+#                                                                                  #
+####################################################################################
+
+command:
+  general:
+    commandNotFound: "&cCommand &7%command% &cwas not found. Please type &7/crop help &cto see the available commands."
+    playerOnlyCommand: "&cOnly players can use this command."
+    playerLackPermission: "&cYou lack permission to run this command."
+
+  default:
+    description: "&7Opens the easy-access menu to configure the plugin."
+
+  help:
+    description: "&7Opens this help menu for commands."
+
+  autofarm:
+    description: "&7Opens a menu to configure your/other's autofarms."
+
+  reset:
+    delete: "&cDeleting &7CropClick files..."
+    failed: "&cFailed &7to reset CropClick files."
+    success: "&aSuccessfully &7reset CropClick files, to its initial settings."
+    description: "&7Resets CropClick, to its initial settings."
+
+  reload:
+    failed: "&cFailed &7to reload CropClick."
+    success: "&aSuccessfully &7reloaded CropClick."
+    description: "&7Reloads CropClick."
+
+  settings:
+    description: "&7Opens the 'general' settings menu."
+
+menu:
+  general:
+    backItemName: "&cBack"
+
+    pagination:
+      previousPageItemName: "&7Previous Page"
+      currentPageItemName: "&7Page: &e%page%"
+      nextPageItemName: "&7Next Page"
+    
+    status:
+      enabled: "Enabled"
+      disabled: "Disabled"
+
+    updateStates:
+      upToDate: "&aUp to date"
+      newUpdate: "&aNew update"
+      noUpdateFound: "&eNo update found"
+      notYetFetched: "&eNot yet fetched"
+      failedToFetch: "&cFailed to fetch"
+  
+  title:
+    main: "Main"
+    help: "Help"
+    updates: "Updates"
+    settings: "Settings"
+
+    addons: "Addons"
+    auraSkills: "AuraSkills"
+    auraSkillsCrop: "Crop Settings"
+    towny: "Towny"
+    mcMMO: "mcMMO"
+    mcMMOCrop: "Crop Settings"
+    residence: "Residence"
+    jobsReborn: "Jobs Reborn"
+    jobsRebornCrop: "Crop Settings"
+    offlineGrowth: "Offline Growth"
+    worldGuard: "WorldGuard"
+
+    crop: "Crop"
+    crops: "Crops"
+    dropChance: "Drop Chance"
+
+    autofarms: "Autofarms"
+    cropLink: "Crop"
+    containerLink: "Container"
+    dispenserLink: "Dispenser"
+
+    sound: "Sound"
+    sounds: "Sounds"
+
+    particle: "Particle"
+    particles: "Particles"
+
+    interact: "Interact"
+    toggle: "Toggle"
+    worlds: "Worlds"
+    world: "World"
+    name: "Name"
+
+    containerPreview: "View - &9%id%"
+    dispenserPreview: "View - &9%id%"
+
+  main:
+    updates:
+      itemName: "&eUpdates"
+      itemTips: "&7Shows the current update status, updates every 30 minutes."
+      itemState: "&7State: &r%state%"
+
+    help:
+      itemName: "&eHelp"
+      itemTips: "&7Shows the available commands, with their permissions and a short description."
+      itemStatus: "&7Amount of Commands: &e%status%"
+
+    addons:
+      itemName: "&eAddons"
+      itemTips: "&7Shows addon specific settings (e.g. WorldGuard Settings)."
+      itemStatus: "&7Amount of Addons: &e%status%"
+
+    settings:
+      itemName: "&eSettings"
+      itemTips: "&7Shows general settings (e.g. World Settings)."
+      itemStatus: "&7Amount of Settings: &e%status%"
+
+    crops:
+      itemName: "&eCrops"
+      itemTips: "&7Shows all the registered crops."
+      itemStatus: "&7Amount of Crops: &e%status%"
+
+    autofarms:
+      itemName: "&eAutofarms"
+      itemTips: "&7Shows all the registered autofarms."
+      itemStatus: "&7Amount of Farms: &e%status%"
+
+  updates:
+    updates:
+      itemName: "&eUpdates"
+      itemTips: "&7Shows the current update status, updates every 30 minutes."
+      itemState: "&7Status: &r%state%"
+
+    player:
+      itemName: "&ePlayer"
+      itemTips: "&7Toggle the update messages for (OP) players."
+      itemStatus: "&7Status: &e%status%"
+
+    console:
+      itemName: "&eConsole"
+      itemTips: "&7Toggle the update messages for the console."
+      itemStatus: "&7Status: &e%status%"
+
+  help:
+    itemName: "&7crop &e%name%"
+    itemUsage: "&7Usage: &e%usage%"
+    itemPermission: "&7Permission: &e%permission%"
+    itemDescription: "&7Description: &e%description%"
+
+  crops:
+    status:
+      enabled: "Harvestable"
+      disabled: "Disabled"
+
+    item:
+      name: "&e%name% &7(%status%)"
+      dropName: "&7Drop Name: &r%name%"
+      dropValue: "&7Drop Value: &e%value%"
+      particles: "&7Amount of Particles: &e%status%"
+      sounds: "&7Amount of Sounds: &e%status%"
+      mcMMOExperience: "&7Experience: &e%status%"
+      auraSkillsExperience: "&7Experience: &e%status%"
+      jobsExperience: "&7Experience: &e%status%"
+      jobsMoney: "&7Money: &e%status%"
+      jobsPoints: "&7Points: &e%status%"
+
+  crop:
+    status:
+      enabled: "Harvestable"
+      disabled: "Disabled"
+
+    add:
+      itemName: "&7Add &a%amount% &7(%type%)"
+      itemAfter: "&7After: &a%value%"
+
+    remove:
+      itemName: "&7Remove &c%amount% &7(%type%)"
+      itemAfter: "&7After: &c%value%"
+
+    crop:
+      itemName: "&e%name% &7(%status%)"
+      itemTips: "&7The &emaximum &7amount dropped, when harvesting one."
+      itemDropValue: "&7Drop Value: &e%value%"
+
+    seed:
+      itemName: "&e%name% &7(%status%)"
+      itemTips: "&7The &emaximum &7amount dropped, when harvesting one."
+      itemDropValue: "&7Drop Value: &e%value%"
+
+    dropChance:
+      itemName: "&eDrop Chance"
+      itemCropStatus: "&7Crop: &e%chance%%"
+      itemSeedStatus: "&7Seed: &e%chance%%"
+
+    linkable:
+      itemName: "&eLinkable"
+      itemTips: "&7Make you able to &elink &7the crop, to autofarms."
+      itemStatus: "&7Status: &e%status%"
+
+    atLeastOne:
+      itemName: "&eAt Least One"
+      itemTips: "&7Makes sure &eat least &eone &7is dropped, when harvesting one."
+      itemStatus: "&7Status: &e%status%"
+
+    replant:
+      itemName: "&eReplant"
+      itemTips: "&7Makes sure the crop is being &ereplanted&7, when harvested."
+      itemStatus: "&7Status: &e%status%"
+
+  dropChance:
+    status:
+      enabled: "Harvestable"
+      disabled: "Disabled"
+
+    add:
+      itemName: "&7Add &a%amount% &7(%type%)"
+      itemAfter: "&7After: &a%value%%"
+
+    remove:
+      itemName: "&7Remove &c%amount% &7(%type%)"
+      itemAfter: "&7After: &c%value%%"
+
+    crop:
+      itemName: "&e%name% &7(%status%)"
+      itemTips: "&7The &echance &7of receiving the drop, when harvesting one."
+      itemDropChance: "&7Drop Chance: &e%chance%%"
+
+    seed:
+      itemName: "&e%name% &7(%status%)"
+      itemTips: "&7The &echance &7of receiving the drop, when harvesting the crop."
+      itemDropChance: "&7Drop Chance: &e%chance%%"
+
+  link:
+    format:
+      x: "&7X: &e%x%"
+      y: "&7Y: &e%y%"
+      z: "&7Z: &e%z%"
+      state: "&7State: %state%"
+
+    states:
+      unlinked: "&7Unlinked"
+      selected: "&bSelected"
+
+    actions:
+      unlinkSuccess: "&7You've successfully unlinked a farm :)"
+      linkSuccess: "&7You've successfully linked a farm :)"
+      linkFailure: "&cYour link failed to be established!"
+
+    glass:
+      itemNameUnclaimed: "&f-"
+      itemNameUnlinked: "&7*"
+      itemNameSelected: "&b**"
+      itemNameLinked: "&e***"
+
+    claim:
+      itemName: "&eClaim"
+      itemStatus: "&7Click to &eclaim &7the autofarm."
+
+    toggle:
+      itemName: "&eAutofarm"
+      itemStatus: "&7Status: &e%status%"
+
+    crop:
+      itemName: "&eCrop"
+
+    container:
+      itemName: "&eContainer"
+      itemTips: "&7Click to view &econtainer's &7inventory."
+
+    dispenser:
+      itemName: "&eDispenser"
+      itemTips: "&7Click to view &edispenser's &7inventory."
+  
+  autofarms:
+    itemName: "&e%name% &7(%status%)"
+    itemOwner: "&7Owner: &e%owner%"
+    itemOwnerUnclaimed: "Unclaimed"
+
+  addons:
+    auraSkills:
+      itemName: "&eAuraSkills"
+      itemTips: "&7Addon specific settings for the &e'title-named' &7plugin, to configure worlds."
+      itemStatus: "&7Enabled: &e%status%"
+
+    jobsReborn:
+      itemName: "&eJobs Reborn"
+      itemTips: "&7Addon specific settings for the &e'title-named' &7plugin, to configure worlds and crops."
+      itemStatus: "&7Enabled: &e%status%"
+    
+    mcMMO:
+      itemName: "&emcMMO"
+      itemTips: "&7Addon specific settings for the &e'title-named' &7plugin, to configure worlds and crops."
+      itemStatus: "&7Enabled: &e%status%"
+
+    offlineGrowth:
+      itemName: "&eOffline Growth"
+      itemTips: "&7Addon specific settings for the &e'title-named' &7plugin, to configure worlds."
+      itemStatus: "&7Enabled: &e%status%"
+
+    residence:
+      itemName: "&eResidence"
+      itemTips: "&7Addon specific settings for the &e'title-named' &7plugin, to configure worlds."
+      itemStatus: "&7Enabled: &e%status%"
+
+    towny:
+      itemName: "&eTowny"
+      itemTips: "&7Addon specific settings for the &e'title-named' &7plugin, to configure worlds."
+      itemStatus: "&7Enabled: &e%status%"
+
+    worldGuard:
+      itemName: "&eWorldGuard"
+      itemTips: "&7Addon specific settings for the &e'title-named' &7plugin, to configure worlds."
+      itemStatus: "&7Enabled: &e%status%"
+
+  addon:
+    worlds:
+      itemName: "&eWorlds"
+      itemTips: "&7Shows addon specific, world settings."
+      itemStatus: "&7Amount of Banished: &e%status%"
+
+    cropSettings:
+      itemName: "&eCrop Settings"
+      itemTips: "&7Shows addon specific, crop settings."
+
+    jobsReborn:
+      itemName: "&eJobs Reborn &7(%status%)"
+      itemTips: "&7Toggles the &e'title-named' &7plugin's functionality and interactivity with &eCropClick&7."
+
+    mcMMO:
+      itemName: "&emcMMO &7(%status%)"
+      itemTips: "&7Toggles the &e'title-named' &7plugin's functionality and interactivity with &eCropClick&7."
+
+    offlineGrowth:
+      itemName: "&eOffline Growth &7(%status%)"
+      itemTips: "&7Toggles the &e'title-named' &7plugin's functionality and interactivity with &eCropClick&7."
+
+    residence:
+      itemName: "&eResidence &7(%status%)"
+      itemTips: "&7Toggles the &e'title-named' &7plugin's functionality and interactivity with &eCropClick&7."
+
+    towny:
+      itemName: "&eTowny &7(%status%)"
+      itemTips: "&7Toggles the &e'title-named' &7plugin's functionality and interactivity with &eCropClick&7."
+
+    worldGuard:
+      itemName: "&eWorldGuard &7(%status%)"
+      itemTips: "&7Toggles the &e'title-named' &7plugin's functionality and interactivity with &eCropClick&7."
+
+    auraSkills:
+      itemName: "&eAuraSkills &7(%status%)"
+      itemTips: "&7Toggles the &e'title-named' &7plugin's functionality and interactivity with &eCropClick&7."
+
+  jobsCrop:
+    add:
+      itemName: "&7Add &a%amount% &7(%type%)"
+      itemAfter: "&7After: &a%value%"
+
+    remove:
+      itemName: "&7Remove &c%amount% &7(%type%)"
+      itemAfter: "&7After: &c%value%"
+
+    points:
+      itemName: "&ePoints"
+      itemTips: "&7The given &epoints&7, when harvesting one."
+      itemValue: "&7Points: &e%value%"
+
+    money:
+      itemName: "&eMoney"
+      itemTips: "&7The given &emoney&7, when harvesting one."
+      itemValue: "&7Money: &e%value%"
+
+    experience:
+      itemName: "&eExperience"
+      itemTips: "&7The given &eexperience&7, when harvesting one."
+      itemValue: "&7Experience: &e%value%"
+
+  mcMMOCrop:
+    add:
+      itemName: "&7Add &a%amount% &7(%type%)"
+      itemAfter: "&7After: &a%value%"
+
+    remove:
+      itemName: "&7Remove &c%amount% &7(%type%)"
+      itemAfter: "&7After: &c%value%"
+
+    experience:
+      itemName: "&eExperience"
+      itemTips: "&7The given &eexperience&7, when harvesting one."
+      itemValue: "&7Experience: &e%value%"
+
+    experienceReason:
+      itemName: "&eExperience Reason"
+      itemTips: "&7The shown experience reason, &emcMMO &7should display when harvesting the crop."
+      itemValue: "&7Reason: &e%value%"
+
+    reasonResponse:
+      changed: "&7Changed the experience reason to &r%name%&7."
+      unchanged: "&cExperience reason unchanged!"
+
+  auraSkillsCrop:
+    add:
+      itemName: "&7Add &a%amount% &7(%type%)"
+      itemAfter: "&7After: &a%value%"
+
+    remove:
+      itemName: "&7Remove &c%amount% &7(%type%)"
+      itemAfter: "&7After: &c%value%"
+
+    experience:
+      itemName: "&eExperience"
+      itemTips: "&7The given &eexperience&7, when harvesting one."
+      itemValue: "&7Experience: &e%value%"
+
+  settings:
+    toggle:
+      itemName: "&eToggle"
+      itemTips: "&7Settings to toggle &eCropClick &7for specific users."
+      itemStatus: "&7Amount of Enabled: &e%status%"
+
+    particles:
+      itemName: "&eParticles"
+      itemTips: "&7Settings to toggle, harvesting &eParticles &7for crops."
+      itemStatus: "&7Amount of Particles: &e%status%"
+
+    sounds:
+      itemName: "&eSounds"
+      itemTips: "&7Settings to toggle, harvesting &eSounds &7for crops."
+      itemStatus: "&7Amount of Sounds: &e%status%"
+
+    name:
+      itemName: "&eName"
+      itemTips: "&7Settings to rename &eDrop &enames &7for crops."
+      itemStatus: "&7Amount of Renamed: &e%status%"
+
+    autofarms:
+      itemName: "&eAutofarms"
+      itemTips: "&7Setting to toggle CropClick's &eAutofarm &7functionality."
+      itemStatus: "&7Status: &e%status%"
+
+    worlds:
+      itemName: "&eWorlds"
+      itemTips: "&7Settings to banish &eCropClick, &ePlayers and Autofarms&7, in specific worlds."
+      itemStatus: "&7Amount of Banished: &e%status%"
+
+  toggle:
+    itemName: "&e%name%"
+    itemStatus: "&7Status: &e%status%"
+
+  particles:
+    itemName: "&e%name% &7(%status%)"
+    itemOrder: "&7Order: &e%order%"
+
+  particle:
+    add:
+      itemName: "&7Add &a%amount% &7(%type%)"
+      itemAfter: "&7After: &a%value%"
+
+    remove:
+      itemName: "&7Remove &c%amount% &7(%type%)"
+      itemAfter: "&7After: &c%value%"
+
+    increaseOrder:
+      itemName: "&7Increase Order"
+      itemAfter: "&7After: &a%value%"
+
+    decreaseOrder:
+      itemName: "&7Decrease Order"
+      itemAfter: "&7After: &a%value%"
+
+    delay:
+      itemName: "&eDelay"
+      itemTips: "&7The specific delay or time, &ein &emilliseconds&7, before running the effect."
+      itemValue: "&7Delay: &e%value%"
+
+    speed:
+      itemName: "&eSpeed"
+      itemTips: "&7The specific, &espeed &emultiplier&7, applied to the effects."
+      itemValue: "&7Speed: &e%value%"
+
+    amount:
+      itemName: "&eAmount"
+      itemTips: "&7The specific &eamount &eof, same type, effects&7 at a time."
+      itemValue: "&7Amount: &e%value%"
+
+  sounds:
+    itemName: "&e%name% &7(%status%)"
+    itemOrder: "&7Order: &e%order%"
+
+  sound:
+    add:
+      itemName: "&7Add &a%amount% &7(%type%)"
+      itemAfter: "&7After: &a%value%"
+
+    remove:
+      itemName: "&7Remove &c%amount% &7(%type%)"
+      itemAfter: "&7After: &c%value%"
+
+    increaseOrder:
+      itemName: "&7Increase Order"
+      itemAfter: "&7After: &a%value%"
+
+    decreaseOrder:
+      itemName: "&7Decrease Order"
+      itemAfter: "&7After: &a%value%"
+
+    delay:
+      itemName: "&eDelay"
+      itemTips: "&7The specific delay or time, &ein &emilliseconds&7, before running the sound."
+      itemValue: "&7Delay: &e%value%"
+
+    volume:
+      itemName: "&eVolume"
+      itemTips: "&7The specific range, &ein &eblocks&7, the sound is played."
+      itemValue: "&7Volume: &e%value%"
+
+    pitch:
+      itemName: "&ePitch"
+      itemTips: "&7The specific &epitch&7, the sound is played in."
+      itemValue: "&7Pitch: &e%value%"
+
+  name:
+    crop:
+      itemName: "&e%name% &7(%status%)"
+      itemTips: "&7The &edrop's name&7, when harvesting one."
+      itemDropName: "&7Drop Name: &r%name%"
+
+    seed:
+      itemName: "&e%name% &7(%status%)"
+      itemTips: "&7The &edrop's name&7, when harvesting the crop."
+      itemDropName: "&7Drop Name: &r%name%"
+
+    colorCode:
+      itemName: "&eColor Codes"
+      itemColor: "&7#%code% : &%color%%name%"
+
+    response:
+      changed: "&7Changed the name of the crop to &r%name%&7."
+      unchanged: "&cName unchanged!"
+
+  worlds:
+    itemName: "&e%name%"
+    itemJobsTips: "&7Toggles the &eJobs Reborn &7addon, in the world."
+    itemMcMMOTips: "&7Toggles the &emcMMO &7addon, in the world."
+    itemAuraSkillsTips: "&7Toggles the &eAura Skills &7addon, in the world."
+    itemOfflineGrowthTips: "&7Toggles the &eOffline Growth &7addon, in the world."
+    itemResidenceTips: "&7Toggles the &eResidence &7addon, in the world."
+    itemTownyTips: "&7Toggles the &eTowny &7addon, in the world."
+    itemWorldGuardTips: "&7Toggles the &eWorldGuard &7addon, in the world."
+    itemStatus: "&7Banished: &e%status%"
+
+  world:
+    world:
+      itemName: "&e%name%"
+      itemTips: "&7Toggles the World's &einteractivity&7 with CropClick."
+      itemStatus: "&7Banished: &e%status%"
+
+    players:
+      itemName: "&ePlayers"
+      itemTips: "&7Toggles Players &einteractivity&7 with CropClick, in the world."
+      itemStatus: "&7Allowed: &e%status%"
+
+    autofarms:
+      itemName: "&eAutofarms"
+      itemTips: "&7Toggles Autofarms &efunctionality&7 with CropClick, in the world."
+      itemStatus: "&7Allowed: &e%status%"
